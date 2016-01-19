@@ -20,17 +20,6 @@ IF EXIST .nuget\nuget.exe goto restore
 md .nuget 
 copy %CACHED_NUGET% .nuget\nuget.exe > nul 
  
- 
-:restore 
-IF EXIST packages\Sake goto getdnx 
-IF "%BUILDCMD_KOREBUILD_VERSION%"=="" ( 
-    .nuget\nuget.exe install KoreBuild -ExcludeVersion -o packages -nocache -pre 
-) ELSE ( 
-   .nuget\nuget.exe install KoreBuild -version %BUILDCMD_KOREBUILD_VERSION% -ExcludeVersion -o packages -nocache -pre 
-) 
-.nuget\NuGet.exe install Sake -ExcludeVersion -Source https://www.nuget.org/api/v2/ -Out packages 
- 
- 
 :getdnx 
 IF "%BUILDCMD_DNX_VERSION%"=="" ( 
    SET BUILDCMD_DNX_VERSION=1.0.0-rc1-update1 
