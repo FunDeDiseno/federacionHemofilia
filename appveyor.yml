@@ -1,8 +1,13 @@
+before_build:
+- ps: &{$Branch='dev';$wc=New-Object System.Net.WebClient;$wc.Proxy=[System.Net.WebRequest]::DefaultWebProxy;$wc.Proxy.Credentials=[System.Net.CredentialCache]::DefaultNetworkCredentials;Invoke-Expression ($wc.DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))}
+
 init:
 - git config --global core.autocrlf true
+- dnvm install -v 1.0.0-rc1-update1
+- dnu restore 
 
-build_script:
-- build.cmd --quiet verify
+
+
 
 test: on
 
