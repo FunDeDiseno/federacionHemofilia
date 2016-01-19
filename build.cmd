@@ -9,11 +9,17 @@ SET BUILDCMD_KOREBUILD_VERSION=
 SET BUILDCMD_DNX_VERSION= 
  
  
-IF EXIST %CACHED_NUGET% goto copynuget 
-echo Downloading latest version of NuGet.exe... 
-IF NOT EXIST %LocalAppData%\NuGet md %LocalAppData%\NuGet 
+IF NOT EXIST %NUGET_PATH% ( 
+     IF NOT EXIST %CACHED_NUGET% ( 
+         echo Downloading latest version of NuGet.exe... 
+         IF NOT EXIST %LocalAppData%\NuGet (  
+             md %LocalAppData%\NuGet 
+         ) 
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest 'https://dist.nuget.org/win-x86-commandline/%NUGET_VERSION%/nuget.exe' -OutFile '%CACHED_NUGET%'" 
- 
+) 
+     copy %CACHED_NUGET% %NUGET_PATH% > nul 
+) 
+
  
 :copynuget 
 IF EXIST .nuget\nuget.exe goto restore 
