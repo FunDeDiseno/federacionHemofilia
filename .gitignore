@@ -231,3 +231,9 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+
+
+bower_components
+node_modules
+project.lock.json
+PublishProfiles/
