@@ -5,18 +5,22 @@ cd %~dp0
 SETLOCAL 
 SET NUGET_VERSION=latest 
 SET CACHED_NUGET=%LocalAppData%\NuGet\nuget.%NUGET_VERSION%.exe 
-SET BUILDCMD_KOREBUILD_VERSION= 
 SET BUILDCMD_DNX_VERSION= 
+
+IF NOT EXIST %BUILD_FOLDER% ( 
+     md %BUILD_FOLDER% 
+ ) 
+
  
  
 IF NOT EXIST %NUGET_PATH% ( 
-     IF NOT EXIST %CACHED_NUGET% ( 
-         echo Downloading latest version of NuGet.exe... 
-         IF NOT EXIST %LocalAppData%\NuGet (  
-             md %LocalAppData%\NuGet 
-         ) 
-@powershell -NoProfile -ExecutionPolicy unrestricted -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest 'https://dist.nuget.org/win-x86-commandline/%NUGET_VERSION%/nuget.exe' -OutFile '%CACHED_NUGET%'" 
-) 
+    IF NOT EXIST %CACHED_NUGET% ( 
+        echo Downloading latest version of NuGet.exe... 
+        IF NOT EXIST %LocalAppData%\NuGet (  
+            md %LocalAppData%\NuGet 
+        ) 
+        @powershell -NoProfile -ExecutionPolicy unrestricted -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest 'https://dist.nuget.org/win-x86-commandline/%NUGET_VERSION%/nuget.exe' -OutFile '%CACHED_NUGET%'" 
+     ) 
      copy %CACHED_NUGET% %NUGET_PATH% > nul 
 ) 
 
