@@ -1,9 +1,9 @@
 init:
 - git config --global core.autocrlf true
 
-build_script
+build_script:
 - build.cmd --quiet verify
 
-test:on
+test: on
 
 deploy: off
