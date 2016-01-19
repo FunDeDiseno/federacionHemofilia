@@ -1,11 +1,17 @@
-before_build:
-- ps: &{$Branch='dev';$wc=New-Object System.Net.WebClient;$wc.Proxy=[System.Net.WebRequest]::DefaultWebProxy;$wc.Proxy.Credentials=[System.Net.CredentialCache]::DefaultNetworkCredentials;Invoke-Expression ($wc.DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))}
-
 init:
 - git config --global core.autocrlf true
-- dnvm install -v 1.0.0-rc1-update1
-- dnu restore 
 
+install:
+- cmd: nuget sources add -Name api.nuget.org -Source https://api.nuget.org/v3/index.json
+- ps: "&{$Branch='dev';$wc=New-Object System.Net.WebClient;$wc.Proxy=[System.Net.WebRequest]::DefaultWebProxy;$wc.Proxy.Credentials=[System.Net.CredentialCache]::DefaultNetworkCredentials;Invoke-Expression ($wc.DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))}"
+- ps: dnvm update-self
+- ps: dnvm upgrade
+- ps: dnvm install 1.0.0-rc1-update1
+- ps: dnvm list
+- ps: dnvm use 1.0.0-rc1-update1
+
+before_build:
+- ps: dnu restore
 
 
 
