@@ -9,6 +9,7 @@ install:
 - ps: dnvm install 1.0.0-rc1-update1
 - ps: dnvm list
 - ps: dnvm use 1.0.0-rc1-update1
+- ps: npm install -g bower
 
 before_build:
 - ps: dnu restore
