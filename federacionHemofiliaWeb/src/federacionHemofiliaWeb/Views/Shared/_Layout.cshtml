@@ -12,18 +12,14 @@
         <script src="~/js/Chart.js"></script>
     </environment>
     <environment names="Staging,Production">
-        <script src="~/js/Chart.min.js"
-                asp-fallback-src="~/js/Chart.js"></script>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css" 
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true"
-              asp-fallback-href="~/css/site.css" asp-fallback-test-class="sr-only" asp-fallback-test-property="positon" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/css/base/_variables.min.css" asp-append-version="true"
               asp-fallback-href="~/css/base/_variables.css" asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/components/_graph.min.css" asp-append-version="true"
               asp-fallback-href="~/css/components/_graph.css" asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        
     </environment>
     @Html.ApplicationInsightsJavaScript(TelemertryConfiguration)
 </head>
@@ -72,7 +68,8 @@
                 asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
                 asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
         </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
+        <script src="~/js/Chart.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     @RenderSection("scripts", required: false)
 </body>
