@@ -17,8 +17,3 @@
 var ctx = document.getElementById("chart").getContext("2d");
 
 var myLineChart = new Chart(ctx).Line(data);
-
-
-function debug() {
-    console.log("debug");
-}
