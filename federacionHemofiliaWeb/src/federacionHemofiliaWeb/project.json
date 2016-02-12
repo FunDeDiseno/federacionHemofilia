@@ -34,8 +34,11 @@
   },
 
   "frameworks": {
-    "dnx451": { },
-    "dnxcore50": { }
+    "dnx451": {
+      "dependencies": {
+        "FireSharp": "2.0.3"
+      }
+    }
   },
 
   "exclude": [
@@ -51,7 +54,9 @@
     "prebuild": [
       "npm install",
       "bower install",
+      "gulp less",
       "gulp clean",
+      "gulp libs",
       "gulp min"
     ]
   }

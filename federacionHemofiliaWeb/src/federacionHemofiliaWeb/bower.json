@@ -1,8 +1,8 @@
 {
-	"name": "ASP.NET",
-	"private": true,
+  "name": "ASP.NET",
+  "private": true,
   "dependencies": {
     "bootstrap": "3.3.6",
-    "foundation": "5.5.3"
+    "Chart-js": "1.0.2"
   }
 }

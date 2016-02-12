@@ -1,0 +1,54 @@
+﻿@using System.Collections.Generic
+@using Microsoft.AspNet.Http
+@using Microsoft.AspNet.Http.Authentication
+@model PacienteMV
+@{
+    ViewData["Title"] = "Paciente";
+}
+@if (Model.pacientes.Count > 0)
+{
+    <h3>Hoy tienes @Model.pacientes.Count paciente(s)</h3>
+    @foreach (var paciente in Model.pacientes)   
+    {
+        <div class="row">
+            <img src="@paciente.Value.FotoUrl" class="col-xs-3 col-md-3 col-lg-3"/>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td><h3>Paciente</h3></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><h4>Nombre</h4></td>
+                        <td><p>@paciente.Value.Nombre</p></td>
+                    </tr>
+                    <tr>
+                        <td><h4>Estatura</h4></td>
+                        <td><p>@paciente.Value.Estatura</p></td>
+                    </tr>
+                    <tr>
+                        <td><h4>Peso</h4></td>
+                        <td><p>@paciente.Value.Peso</p></td>
+                    </tr>
+                    <tr>
+                        <td><h4>Edad</h4></td>
+                        <td><p>@paciente.Value.edad</p></td>
+                    </tr>
+                    <tr>
+                        <td><h4>Tipo de Hemofilia</h4></td>
+                        <td><p>@paciente.Value.Tipo</p></td>
+                    </tr>
+                    <tr>
+                        <td><h4>Severidad</h4></td>
+                        <td><p>@paciente.Value.Severidad</p></td>
+                    </tr>
+                </tbody>
+            </table> 
+        </div>
+    }
+
+}else{
+    <p>No tienes pacientes Hoy! </p>
+}
+<canvas id="chart" width="500" height="400"></canvas>

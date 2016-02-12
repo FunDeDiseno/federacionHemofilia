@@ -9,6 +9,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
+using federacionHemofiliaWeb.Services;
+using federacionHemofiliaWeb.Interfaces;
+using federacionHemofiliaWeb.Repositories;
+
 namespace federacionHemofiliaWeb
 {
     public class Startup
@@ -36,6 +40,10 @@ namespace federacionHemofiliaWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddApplicationInsightsTelemetry(Configuration);
+
+            services.Configure<FireOps>(Configuration);
+
+            services.AddSingleton<IPacienteRepository, PacienteRepository>();
 
             services.AddMvc();
         }
