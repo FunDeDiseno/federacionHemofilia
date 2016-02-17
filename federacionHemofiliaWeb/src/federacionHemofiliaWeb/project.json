@@ -56,7 +56,6 @@
       "bower install",
       "gulp less",
       "gulp clean",
-      "gulp libs",
       "gulp min"
     ]
   }
