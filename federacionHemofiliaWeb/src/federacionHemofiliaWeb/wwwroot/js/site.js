@@ -30,6 +30,6 @@ function chartData(id) {
         data.datasets[0].data.push(value)
     }
 
-    var ctx = document.getElementById("chart").getContext("2d");
-    var myLineChart = new Chart(ctx).Line(data);
+    var elemnt = document.getElementById(id).getContext("2d");
+    var myChart = new Chart(elemnt).Line(data);
 }
