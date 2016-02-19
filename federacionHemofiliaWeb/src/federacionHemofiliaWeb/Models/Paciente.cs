@@ -10,15 +10,23 @@ namespace federacionHemofiliaWeb.Models
     public class Paciente
     {
         public Dictionary<DateTime,int> Aplicaciones { get; set; }
-        public string Nombre { get; set; }
         public DateTime FechaNac { get; set; }
         public float Estatura { get; set; }
         public float Peso { get; set; }
         public string FotoUrl { get; set; }
         public string Severidad { get; set; }
         public string Tipo { get; set; }
+        public string PrimerNombre { get; set; }
+        public string Apellido { get; set; }
 
-        public int edad
+        public string Nombre {
+            get
+            {
+                return PrimerNombre + " " + Apellido;
+            }
+        }
+
+        public int Edad
         {
             get
             {

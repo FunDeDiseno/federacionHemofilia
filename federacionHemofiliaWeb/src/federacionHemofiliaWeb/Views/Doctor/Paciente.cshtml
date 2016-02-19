@@ -12,7 +12,14 @@
     <ul class="nav nav-tabs tabs-left">
         @foreach (var paciente in Model.pacientes)
         {
-            <li><a class="active" href="@paciente.Value.Nombre" data-toggle="tab">@paciente.Value.Nombre</a></li>
+            @if (Model.pacientes.First().Equals(paciente))
+            {
+                <li class="active"><a href="#@paciente.Value.PrimerNombre" data-toggle="tab">@paciente.Value.Nombre</a></li>
+            }
+            else
+            {
+                <li><a href="#@paciente.Value.PrimerNombre" data-toggle="tab">@paciente.Value.Nombre</a></li>
+            }
         }
     </ul>
 </div>
@@ -22,7 +29,7 @@
     <div class="tab-content">
         @foreach (var paciente in Model.pacientes)
         {
-            <div class="tab-pane active" id="@paciente.Value.Nombre">
+            <div class="tab-pane" id="@paciente.Value.PrimerNombre">
                 <div class="row">
                     <img src="@paciente.Value.FotoUrl" class="col-xs-3 col-md-3 col-lg-3" />
                     <table class="table">
@@ -46,7 +53,7 @@
                             </tr>
                             <tr>
                                 <td><h4>Edad</h4></td>
-                                <td><p>@paciente.Value.edad</p></td>
+                                <td><p>@paciente.Value.Edad</p></td>
                             </tr>
                             <tr>
                                 <td><h4>Diagnostico</h4></td>
@@ -58,7 +65,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <canvas id="chart" width="500" height="400"></canvas>
+                    <canvas id="chart" width="1000" height="500"></canvas>
                     <script>
                         chartData("@paciente.Key");
                     </script>

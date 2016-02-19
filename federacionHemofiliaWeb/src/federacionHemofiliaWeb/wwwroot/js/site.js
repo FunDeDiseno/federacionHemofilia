@@ -24,7 +24,9 @@ function chartData(id) {
 
     for (var key in dictionary) {
         var value = dictionary[key];
-        data.labels.push(key);
+        var correcionFechas = key.split("T");
+        var fecha = correcionFechas[0];
+        data.labels.push(fecha);
         data.datasets[0].data.push(value)
     }
 
