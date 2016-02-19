@@ -1,5 +1,5 @@
 ﻿var data = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: [],
     datasets: [
         {
             label: "My First dataset",
@@ -9,11 +9,25 @@
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
-            data: [65, 59, 80, 81, 56, 55, 40]
+            data: []
         }
     ]
 };
 
-var ctx = document.getElementById("chart").getContext("2d");
+function chartData(id) {
 
-var myLineChart = new Chart(ctx).Line(data);
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "/Doctor/pacienteGraph/" + id, false);
+    xmlhttp.send(null);
+
+    var dictionary = JSON.parse(xmlhttp.responseText);
+
+    for (var key in dictionary) {
+        var value = dictionary[key];
+        data.labels.push(key);
+        data.datasets[0].data.push(value)
+    }
+
+    var ctx = document.getElementById("chart").getContext("2d");
+    var myLineChart = new Chart(ctx).Line(data);
+}

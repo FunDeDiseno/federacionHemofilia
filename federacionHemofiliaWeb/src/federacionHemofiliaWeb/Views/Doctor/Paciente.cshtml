@@ -5,15 +5,14 @@
 @{
     ViewData["Title"] = "Paciente";
 }
+<script src="~/js/site.js"></script>
 <br />
 <br />
 <div class="col-xs-3">
-    <!-- required for floating -->
-    <!-- Nav tabs -->
     <ul class="nav nav-tabs tabs-left">
         @foreach (var paciente in Model.pacientes)
-            {
-            <li class="active"><a href="@paciente.Value.Nombre" data-toggle="tab">@paciente.Value.Nombre</a></li>
+        {
+            <li><a class="active" href="@paciente.Value.Nombre" data-toggle="tab">@paciente.Value.Nombre</a></li>
         }
     </ul>
 </div>
@@ -60,6 +59,9 @@
                         </tbody>
                     </table>
                     <canvas id="chart" width="500" height="400"></canvas>
+                    <script>
+                        chartData("@paciente.Key");
+                    </script>
                 </div>
             </div>
         }

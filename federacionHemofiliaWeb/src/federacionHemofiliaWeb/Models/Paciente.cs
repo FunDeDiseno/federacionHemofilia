@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using Newtonsoft.Json;
+
 namespace federacionHemofiliaWeb.Models
 {
     public class Paciente
     {
-        public List<Applicacion> Applicaciones { get; set; }
+        public Dictionary<DateTime,int> Aplicaciones { get; set; }
         public string Nombre { get; set; }
         public DateTime FechaNac { get; set; }
         public float Estatura { get; set; }
@@ -15,6 +17,7 @@ namespace federacionHemofiliaWeb.Models
         public string FotoUrl { get; set; }
         public string Severidad { get; set; }
         public string Tipo { get; set; }
+
         public int edad
         {
             get
@@ -25,6 +28,19 @@ namespace federacionHemofiliaWeb.Models
                     age--;
                 }
                 return age;
+            }
+        }
+
+        public string getData
+        {
+            get
+            {
+                string json = "";
+                Parallel.ForEach(Aplicaciones, datos =>
+                {
+                    json = JsonConvert.SerializeObject(Aplicaciones);
+                });
+                return json;
             }
         }
     }

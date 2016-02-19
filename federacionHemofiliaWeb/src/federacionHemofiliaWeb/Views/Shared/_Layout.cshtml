@@ -20,6 +20,7 @@
               asp-fallback-href="~/css/base/_variables.css" asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/components/_graph.min.css" asp-append-version="true"
               asp-fallback-href="~/css/components/_graph.css" asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <script src="~/js/Chart.js"></script>
     </environment>
     @Html.ApplicationInsightsJavaScript(TelemertryConfiguration)
 </head>
@@ -71,7 +72,6 @@
                 asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
                 asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
         </script>
-        <script src="~/js/Chart.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     @RenderSection("scripts", required: false)

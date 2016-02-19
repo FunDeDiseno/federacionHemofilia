@@ -76,7 +76,10 @@ namespace federacionHemofiliaWeb
                 routes.MapRoute(
                     name: "mainRoute",
                     template: "{controller=Home}/{action=Index}/{id?}");
-                
+
+                routes.MapWebApiRoute(
+                    name: "api",
+                    template: "api/{controller}/{action}/{id?}");
             });
         }
 

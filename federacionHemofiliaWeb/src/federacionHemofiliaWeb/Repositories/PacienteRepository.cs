@@ -30,9 +30,16 @@ namespace federacionHemofiliaWeb.Repositories
 
         public async Task<Dictionary<string,Paciente>> get()
         {
-            var response = await client.GetAsync("pacientes/");
+            var response = await client.GetAsync("users/");
             var pacientes = response.ResultAs<Dictionary<string, Paciente>>();
             return pacientes;
+        }
+
+        public async Task<Dictionary<DateTime, int>> getData(string id)
+        {
+            var response = await client.GetAsync($"users/{id}/Aplicaciones/");
+            var datos = response.ResultAs<Dictionary<DateTime, int>>();
+            return datos;
         }
     }
 }

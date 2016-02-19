@@ -21,14 +21,15 @@ namespace federacionHemofiliaWeb.Controllers
         {
             var listaPacientes = await pacientes.get();
 
-            return View(new PacienteMV {
+            return View(new PacienteMV
+            {
                 pacientes = listaPacientes
             });
         }
-
-        public IActionResult Paciente(string id)
+        
+        public async Task<Dictionary<DateTime, int>> pacienteGraph(string id)
         {
-            return View(id);
+            return await pacientes.getData(id);
         }
     }
 }
