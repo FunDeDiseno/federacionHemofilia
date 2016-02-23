@@ -34,3 +34,5 @@ function chartData(id) {
     var element = document.getElementById(id).getContext("2d");
     var myChart = new Chart(element).Line(data);
 }
+
+
