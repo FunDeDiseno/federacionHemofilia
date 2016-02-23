@@ -25,7 +25,6 @@
 </div>
 
 <div class="col-xs-9">
-    <!-- Tab panes -->
     <div class="tab-content">
         @foreach (var paciente in Model.pacientes)
         {
@@ -33,41 +32,43 @@
             {
                 <div class="tab-pane active" id="@paciente.Value.PrimerNombre">
                     <div class="row">
-                        <img src="@paciente.Value.FotoUrl" class="col-xs-3 col-md-3 col-lg-3" />
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <td><h3>Paciente</h3></td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><h4>Nombre</h4></td>
-                                    <td><p>@paciente.Value.Nombre</p></td>
-                                </tr>
-                                <tr>
-                                    <td><h4>Estatura</h4></td>
-                                    <td><p>@paciente.Value.Estatura</p></td>
-                                </tr>
-                                <tr>
-                                    <td><h4>Peso</h4></td>
-                                    <td><p>@paciente.Value.Peso</p></td>
-                                </tr>
-                                <tr>
-                                    <td><h4>Edad</h4></td>
-                                    <td><p>@paciente.Value.Edad</p></td>
-                                </tr>
-                                <tr>
-                                    <td><h4>Diagnostico</h4></td>
-                                    <td><p>hemofilia tipo @paciente.Value.Tipo</p></td>
-                                </tr>
-                                <tr>
-                                    <td><h4>Severidad</h4></td>
-                                    <td><p>@paciente.Value.Severidad</p></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <canvas id="@paciente.Key" width="1000" height="500"></canvas>
+                        <img src="@paciente.Value.FotoUrl" class="col-xs-4 col-md-4 col-lg-4" />
+                        <div class="col-xs-7 col-md-7 col-lg-7 col-xs-offset-1 col-md-offset-1 col-lg-offset-1">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <td><h3>Paciente</h3></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><h4>Nombre</h4></td>
+                                        <td><p>@paciente.Value.Nombre</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h4>Estatura</h4></td>
+                                        <td><p>@paciente.Value.Estatura</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h4>Peso</h4></td>
+                                        <td><p>@paciente.Value.Peso</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h4>Edad</h4></td>
+                                        <td><p>@paciente.Value.Edad</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h4>Diagnostico</h4></td>
+                                        <td><p>hemofilia tipo @paciente.Value.Tipo</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h4>Severidad</h4></td>
+                                        <td><p>@paciente.Value.Severidad</p></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <canvas id="@paciente.Key" width="750" height="350"></canvas>
                         <script>
                             chartData("@paciente.Key");
                         </script>
@@ -78,45 +79,47 @@
             {
                 <div class="tab-pane" id="@paciente.Value.PrimerNombre">
                     <div class="row">
-                        <img src="@paciente.Value.FotoUrl" class="col-xs-3 col-md-3 col-lg-3" />
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <td><h3>Paciente</h3></td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><h4>Nombre</h4></td>
-                                    <td><p>@paciente.Value.Nombre</p></td>
-                                </tr>
-                                <tr>
-                                    <td><h4>Estatura</h4></td>
-                                    <td><p>@paciente.Value.Estatura</p></td>
-                                </tr>
-                                <tr>
-                                    <td><h4>Peso</h4></td>
-                                    <td><p>@paciente.Value.Peso</p></td>
-                                </tr>
-                                <tr>
-                                    <td><h4>Edad</h4></td>
-                                    <td><p>@paciente.Value.Edad</p></td>
-                                </tr>
-                                <tr>
-                                    <td><h4>Diagnostico</h4></td>
-                                    <td><p>hemofilia tipo @paciente.Value.Tipo</p></td>
-                                </tr>
-                                <tr>
-                                    <td><h4>Severidad</h4></td>
-                                    <td><p>@paciente.Value.Severidad</p></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <canvas id="@paciente.Key" width="1000" height="500"></canvas>
+                        <img src="@paciente.Value.FotoUrl" class="col-xs-4 col-md-4 col-lg-4" />
+                        <div class="col-xs-7 col-md-7 col-lg-7 col-xs-offset-1 col-md-offset-1 col-lg-offset-1">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <td><h3>Paciente</h3></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><h4>Nombre</h4></td>
+                                        <td><p>@paciente.Value.Nombre</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h4>Estatura</h4></td>
+                                        <td><p>@paciente.Value.Estatura</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h4>Peso</h4></td>
+                                        <td><p>@paciente.Value.Peso</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h4>Edad</h4></td>
+                                        <td><p>@paciente.Value.Edad</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h4>Diagnostico</h4></td>
+                                        <td><p>hemofilia tipo @paciente.Value.Tipo</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h4>Severidad</h4></td>
+                                        <td><p>@paciente.Value.Severidad</p></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <canvas id="@paciente.Key" width="750" height="350"></canvas>
                         <script>
                             chartData("@paciente.Key");
                         </script>
-                    </div>
+                        </div>
                 </div>
             }
         }

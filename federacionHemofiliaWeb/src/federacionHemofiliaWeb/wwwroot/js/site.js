@@ -14,6 +14,7 @@
     ]
 };
 
+//Chart.defaults.global.responsive = true;
 function chartData(id) {
 
     var xmlhttp = new XMLHttpRequest();
@@ -30,6 +31,6 @@ function chartData(id) {
         data.datasets[0].data.push(value)
     }
 
-    var elemnt = document.getElementById(id).getContext("2d");
-    var myChart = new Chart(elemnt).Line(data);
+    var element = document.getElementById(id).getContext("2d");
+    var myChart = new Chart(element).Line(data);
 }
