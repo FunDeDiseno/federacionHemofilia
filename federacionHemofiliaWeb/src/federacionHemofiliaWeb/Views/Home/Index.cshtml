@@ -1,58 +1,124 @@
-﻿@{
-    ViewData["Title"] = "Proyecto Ultra";
+﻿@{ 
+    ViewData["Title"] = "Propuesta";
 }
-<div class="row">
-    <div class="col-md-3 col-xs-12">
-        <h2>Trasfondo</h2>
-        <small class="quote">"Las historias alimentan la imaginación" - Anónimo</small>
-        <br />
-        <p>
-            Hace ya tiempo, mi novia me comentaba que su hermano, el cuál padece hemofilia, es muy malo llevando el registro de cada cuando utilizaba su medicamento y que los doctores siempre le pedian un regsitro, 
-            a ella se le ocurrio entonces que podríamos llegar a una solucion  que fuera fácil de usar pues los pacientes son de distintas edades y niveles socioeconómicos. 
-        </p>
-        <p>
-            Posteriormente me presentó con las personas encargadas de la federación en Guadalajara, platicando con estas personas llegamos a la conclusión que sería un buen producto para sus pacientes y nos dieron luz
-            verde para empezar el desarrollo.
-        </p>
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img class="first-slide" src="~/images/hemofilia.jpg" alt="First slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>TU APP - TU TRATAMIENTO</h1>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img class="second-slide" src="~/images/mobileHealth.jpg" alt="Second slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Proyecto Ultra es mas que solo una idea</h1>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Acerca</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img class="third-slide" src="http://www.ergentus.com/wp-content/uploads/2014/03/bigstock-healthcare-medical-and-future-50084645.jpg" alt="Third slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Projecto Ultra</a></p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-3 col-xs-12">
-        <h2>Problema</h2>
-        <small class="quote">"Los problemas son oportunidades para demostrar lo que se sabe." - Duke Ellington</small>
-        <br />
-        <p>
-            Los pacientes con hemofilia deben mantener un registro de cuanto factor han estado utilizando, normalmente en papel, este registro debe presentarse al médico en su visita de rutina.
-        </p>
-        <p>
-            El doctor, con está información y con el numero de frascos que devuelve el paciente, determina cuantos se le deberán entregar.
-        </p>
-        <p>
-            El seguro social es el encargado de comprar el factor y repartirlo en la cantidad que indique cada médico.
-        </p>
-        <p>
-            El problema es que los mismos pacientes son muy malos en llevar un registro preciso sobre las veces que se han sumisnistrado factor,
-            también existe un mercado negro en el que se compran frascos vacios contal de obtener más dosis.
-        </p>
-    </div>
-    <div class="col-md-3 col-xs-12">
-        <h2>Inspiración</h2>
-        <small class="quote">"I'm diabetic and I'm an engineer, lets plug some wires together..." - Scott Hanselman</small>
-        <br />
-        <p>
-            Despues de haber platicado con las personas encargadas de la federación en Guadalajara estaba listo para comenzar pero me faltaba inspiración para pensar en una solución que fuera viable,
-            entonces recordé la <a href="https://channel9.msdn.com/Events/Visual-Studio/Connect-event-2015/061" target="_blank">conferencia</a> de Scott Hanselman, depues de verla y volver a verla, empecé a planear y a buscar
-            mi equipo de trabajo porque un sistema de este tipo no se puede hacer por una sola persona.
-        </p>
-    </div>
-    <div class="col-md-3 col-xs-12">
-        <h2>Solución</h2>
-        <small class="quote">"La inspiracion es la madre de los inventos" - Anónimo</small>
-        <br />
-        <p>
-            Crear una aplicación móvil para los pacientes, en la que con presionar solamente un botón, registren que se inyectaron factor, en el registro se les hará una serie de preguntas para poder crear un perfil médico,
-            también podrá solicitar cita con el doctor.
-        </p>
-        <p>
-            Los médicos tendrán un portal en el que pueden agregar a sus pacientes, ver cada cuando se suministran factor y además podrá agendar citas. 
-        </p>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div><!-- /.carousel -->
+<div class="rectangle">
+    <div class="container marketing">
+        <div class="row">
+            <div class="col-lg-3">
+                <img class="img-circle" src="~/images/doctor.png" alt="Generic placeholder image" width="140" height="140">
+            </div>
+            <div class="col-lg-3">
+                <img class="img-circle" src="~/images/user.png" alt="Generic placeholder image" width="140" height="140">
+            </div>
+            <div class="col-lg-3">
+                <img class="img-circle" src="~/images/logo1.png" alt="Generic placeholder image" width="140" height="140">
+            </div>
+            <div class="col-lg-3">
+                <img class="img" src="~/images/fluctuates.png" alt="Generic placeholder image" width="160" height="140">
+            </div>
+        </div>
     </div>
 </div>
+
+<div class="rectangle">
+    <div class="container marketing">
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="col-lg-3">
+                <img class="img-circle" src="~/images/doctor.png" alt="Generic placeholder image" width="140" height="140">
+                <h1 class="doctor">Doctor</h1>
+            </div>
+            <div class="col-lg-3">
+                <img class="img" src="~/images/user.png" alt="Generic placeholder image" width="140" height="140">
+                <h3 class="doctor-view" id="user-doctor-view">Usuario</h3>
+            </div>
+            <div class="col-lg-3">
+                <img class="img" src="~/images/appointment.png" alt="Generic placeholder image" width="140" height="140">
+                <h3 class="doctor-view">Agendar cita</h3>
+            </div>
+            <div class="col-lg-3">
+                <img class="img" src="~/images/graphics.png" alt="Generic placeholder image" width="140" height="140">
+                <h3 class="doctor-view">Control de vida</h3>
+            </div>
+        </div><!-- /.row -->
+    </div>
+</div>
+
+<div class="rectangle">
+    <div class="container marketing">
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="col-lg-3">
+                <img class="img-circle" src="~/images/user.png" alt="Generic placeholder image" width="140" height="140">
+                <h1 class="doctor">Usuario</h1>
+            </div>
+            <div class="col-lg-3">
+                <img class="img" src="~/images/ultra.png" alt="Generic placeholder image" width="140" height="140">
+                <h3 class="doctor-view" id="user-doctor-view">Un Boton</h3>
+            </div>
+            <div class="col-lg-3">
+                <img class="img" src="~/images/graphics.png" alt="Generic placeholder image" width="140" height="140">
+                <h3 class="doctor-view">Checa tus niveles</h3>
+            </div>
+            <div class="col-lg-3">
+                <img class="img" src="~/images/profile.png" alt="Generic placeholder image" width="140" height="140">
+                <h3 class="doctor-view">Tarjeta medica</h3>
+            </div>
+        </div><!-- /.row -->
+    </div>
+</div>
+<div class="container">
+    <h3>El siguiente audio es la entrevista que se le realizó a un paciente con hemofilia.</h3>
+    <audio controls="controls" class="reproductor" >
+        <source src="~/audios/ya es el bueno.mp3" type="audio/mp3" />
+    </audio>
+</div>
+<script type="text/javascript">
+    var body = document.getElementById("body");
+    body.classList.remove("container");
+</script>

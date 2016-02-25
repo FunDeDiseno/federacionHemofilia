@@ -16,21 +16,6 @@ namespace federacionHemofiliaWeb.Controllers
             return View();
         }
 
-        public IActionResult Persona()
-        {
-            return View();
-        }
-
-        public IActionResult Propuesta()
-        {
-            return View();
-        }
-
-        public IActionResult Samuel()
-        {
-            return View();
-        }
-
         public IActionResult Metodo()
         {
             return View();
