@@ -20,5 +20,10 @@ namespace federacionHemofiliaWeb.Controllers
         {
             return View();
         }
+        
+        public IActionResult MetodoMarco()
+        {
+            return View();
+        }
     }
 }
