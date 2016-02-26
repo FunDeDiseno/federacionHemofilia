@@ -12,6 +12,11 @@ namespace federacionHemofiliaWeb.Interfaces
     {
         Task<Dictionary<string, Paciente>> get();
 
+        Task<Paciente> get(string id);
+
         Task<Dictionary<DateTime, int>> getData(string id);
+
+        Task<bool> update(Paciente paciente, string id);
+
     }
 }

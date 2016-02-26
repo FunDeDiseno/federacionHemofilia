@@ -35,11 +35,31 @@ namespace federacionHemofiliaWeb.Repositories
             return pacientes;
         }
 
+        public async Task<Paciente> get(string id)
+        {
+            var response = await client.GetAsync($"users/{id}");
+            var user = response.ResultAs<Paciente>();
+            return user;
+        }
+
         public async Task<Dictionary<DateTime, int>> getData(string id)
         {
             var response = await client.GetAsync($"users/{id}/Aplicaciones/");
             var datos = response.ResultAs<Dictionary<DateTime, int>>();
             return datos;
+        }
+
+        public async Task<bool> update(Paciente paciente, string id)
+        {
+            var response = await client.UpdateAsync($"users/{id}", paciente);
+            if(response.StatusCode.ToString() == "200")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
