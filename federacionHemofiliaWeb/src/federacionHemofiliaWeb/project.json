@@ -35,8 +35,8 @@
 
   "frameworks": {
     "dnx451": {
-      "dependencies": {
-        "FireSharp": "2.0.3"
+      "dependencies":{ 
+          "FireSharp": "2.0.3"
       }
     }
   },
