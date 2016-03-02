@@ -4,14 +4,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" , initial-scale="1.0" />
     <title>@ViewData["Title"]</title>
+    <link rel="icon" href="images/logo1.png">
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
         <link rel="stylesheet" href="~/css/base/_variables.css" />
         <link rel="stylesheet" href="~/css/components/_graph.css" />
+        
         <script src="~/js/Chart.js"></script>
     </environment>
     <environment names="Staging,Production">
+        
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css" 
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
