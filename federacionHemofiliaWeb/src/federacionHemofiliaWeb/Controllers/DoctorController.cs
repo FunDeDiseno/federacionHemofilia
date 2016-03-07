@@ -31,5 +31,11 @@ namespace federacionHemofiliaWeb.Controllers
         {
             return await pacientes.getData(id);
         }
+        
+        public IActionResult Registro()
+        {
+            return View();
+        }
+        
     }
 }

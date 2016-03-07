@@ -39,3 +39,9 @@ function chartData(id) {
 function name(params) {
     
 }
+
+//registro funcion escoger fecha
+
+document.getElementById(function () {
+    document.getElementById('#datetimepicker1').datetimepicker();
+});

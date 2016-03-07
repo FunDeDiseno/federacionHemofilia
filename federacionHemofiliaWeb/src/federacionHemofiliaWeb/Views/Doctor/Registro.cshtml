@@ -1,0 +1,101 @@
+@{ 
+    ViewData["Title"] = "Registro Paciente";
+}
+ <body class="sign-in">
+     
+    <div class="container">
+      <form class="form-signin">
+        <h1 class="text-center">Registro del Paciente </h1>  
+        <!--<h3 class="form-signin-heading">Nombre(s)</h3>-->
+        <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+        <div class="row">
+            <div class="col-xs-12 col-lg-6">
+                <label for="inputEmail" class="sr-only">Nombre(s)</label>
+                <input id="Doctor-names" class="form-control" placeholder="Nombre(s)" required autofocus>
+            </div>
+            <div class="col-xs-12 col-lg-6">
+                <label for="inputEmail" class="sr-only">Apellidos</label>
+                <input id="Doctor-lastnames" class="form-control" placeholder="Apellidos" required autofocus>
+            </div>
+        </div>
+        <br/>
+        
+        <div>
+            <label for="inputEmail" class="sr-only">Correo Electronico</label>
+            <input type="email" id="email" class="form-control" placeholder="Correo Electronico" required autofocus>
+        </div>
+        <br/>
+        <div>
+            
+            <input id="Bdate" class="form-control" placeholder="Fecha de Nacimiento" type="text" onfocus="this.type='date';
+                      this.setAttribute('onfocus','');this.blur();this.focus();" required autofocus>
+        </div>
+        <br/>
+        <div>
+        <label for="inputEmail" class="sr-only">Diagnostico</label>
+        <input type="text" id="diagnostico" class="form-control" placeholder="Diagnostico" required autofocus>
+        </div>
+        
+        <br/>  
+        <div class="row">
+            <div class="col-xs-12 col-lg-6">
+                <label for="inputEmail" class="sr-only">Peso</label>
+                <input id="peso" class="form-control" placeholder="Peso" required autofocus>
+            </div>
+            <div class="col-xs-12 col-lg-6">
+                <label for="inputEmail" class="sr-only">Estatura</label>
+                <input id="estatura" class="form-control" placeholder="Estatura" required autofocus>
+            </div>
+        </div>
+        <br/>
+        <!--
+        <div class="row">
+            <div class="col-xs-12 col-lg-6">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" 
+                    aria-haspopup="true" aria-expanded="false">
+                        Severidad
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Separated link</a>
+                    </div>
+                    </div>
+                
+            </div>
+            <div class="col-xs-12 col-lg-6">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default">Action</button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Separated link</a>
+                    </div>
+                 </div>
+            </div>
+        </div>-->
+        
+       
+        <br/>
+        <button id = "registro" class="btn btn-lg btn-primary btn-block" onclick="saveTraveler()" type="submit">Registro</button>
+      </form>
+
+    </div> <!-- /container -->
+
+    
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug
+
+       
+        <script src="js/ie10-viewport-bug-workaround.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script> -->
+
+  </body>
