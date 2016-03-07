@@ -2,60 +2,51 @@
     ViewData["Title"] = "Registro";
 }
  <body class="sign-in">
-    <div class="navbar-wrapper">
-      <div class="container">
-
-        <nav class="navbar navbar-inverse navbar-static-top">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">Chek-In Travel</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="leader.html">Leader Travel</a></li>
-                <li class="active"><a href="#contact">Traveler</a></li>
-                <li><a href="travelerUI.html">Traveler UI</a></li>
-                <li><a href="leader-table.html">Table</a></li>
-                 </ul>
-                </li>
-              </ul>
-             </div>
-            </div>
-           </nav>
-          </div>
-        </div>
-
-        <br/><br/>
-
+     
     <div class="container">
-
       <form class="form-signin">
-
-        <h2 class="form-signin-heading">Traveler Name </h2>
-        <label for="inputEmail" class="sr-only">Traveler Name</label>
-        <input id="traveler_name" class="form-control" placeholder="Traveler Name" required autofocus>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
+        <h1 class="text-center">Registro Doctor </h1>  
+        <!--<h3 class="form-signin-heading">Nombre(s)</h3>-->
+        <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+        <div class="row">
+            <div class="col-xs-12 col-lg-6">
+                <label for="inputEmail" class="sr-only">Nombre(s)</label>
+                <input id="Doctor-names" class="form-control" placeholder="Nombre(s)" required autofocus>
+            </div>
+            <div class="col-xs-12 col-lg-6">
+                <label for="inputEmail" class="sr-only">Apellidos</label>
+                <input id="Doctor-lastnames" class="form-control" placeholder="Apellidos" required autofocus>
+            </div>
         </div>
-        <h2 class="form-signin-heading">Travel Code</h2>
-        <label for="inputEmail" class="sr-only">Travel Code</label>
-        <input id="code_trip" class="form-control" placeholder="Travel Code (XX12X)" required autofocus>
+        <br/>
+        <div>
+        <label for="inputEmail" class="sr-only">Correo Electronico</label>
+        <input id="email" class="form-control" placeholder="Correo Electronico" required autofocus>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col-xs-12 col-lg-6">
+                <label for="inputEmail" class="sr-only">Contraseña</label>
+                <input type="password" id="passw" class="form-control" placeholder="Contraseña" required autofocus>
+            </div>
+            <div class="col-xs-12 col-lg-6">
+                <label for="inputEmail" class="sr-only">Validar Contraseña</label>
+                <input type="password" id="passw" class="form-control" placeholder="Validar Contraseña" required autofocus>
+            </div>
+        </div>
+        <br/>
+        <div>
+        <label for="inputEmail" class="sr-only">Especialidad</label>
+        <input id="especialidad" class="form-control" placeholder="Especialidad" required autofocus>
+        </div>
+        
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
         <br/>
-        <button id = "go-traveler" class="btn btn-lg btn-primary btn-block" onclick="saveTraveler()" type="submit">Let's Travel</button>
+        <button id = "go-traveler" class="btn btn-lg btn-primary btn-block" onclick="saveTraveler()" type="submit">Registro</button>
       </form>
 
     </div> <!-- /container -->
