@@ -25,5 +25,10 @@ namespace federacionHemofiliaWeb.Controllers
         {
             return View();
         }
+        
+        public IActionResult Acerca()
+        {
+            return View();
+        }
     }
 }
