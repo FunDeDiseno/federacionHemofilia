@@ -27,15 +27,19 @@ namespace federacionHemofiliaWeb.Controllers
             });
         }
         
+        [HttpGet]
         public async Task<Dictionary<DateTime, int>> pacienteGraph(string id)
         {
             return await pacientes.getData(id);
         }
         
+        [HttpGet]
         public IActionResult Registro()
         {
             return View();
         }
+
+
         
     }
 }
