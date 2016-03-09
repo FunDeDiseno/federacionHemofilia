@@ -28,6 +28,7 @@ namespace federacionHemofiliaWeb.Controllers
         {
             return View();
         }   
+
         // GET: /<controller>/
         public IActionResult Registro()
         {
