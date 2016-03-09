@@ -1,54 +1,49 @@
+@model DoctorVM
 @{ 
     ViewData["Title"] = "Registro Doctor";
 }
  <body class="sign-in">
      
     <div class="container">
-      <form class="form-signin">
+      <form asp-controller="User" asp-action="Registro" method="post" role="form" class="form-signin">
         <h1 class="text-center">Registro Doctor </h1>  
         <!--<h3 class="form-signin-heading">Nombre(s)</h3>-->
         <!-- Stack the columns on mobile by making one full-width and the other half-width -->
         <div class="row">
             <div class="col-xs-12 col-lg-6">
                 <label for="inputEmail" class="sr-only">Nombre(s)</label>
-                <input id="Doctor-names" class="form-control" placeholder="Nombre(s)" required autofocus>
+                <input id="Doctor-names" class="form-control" asp-for="FirstName" placeholder="Nombre(s)" required autofocus>
             </div>
             <div class="col-xs-12 col-lg-6">
                 <label for="inputEmail" class="sr-only">Apellidos</label>
-                <input id="Doctor-lastnames" class="form-control" placeholder="Apellidos" required autofocus>
+                <input id="Doctor-lastnames" class="form-control" asp-for="LastNames" placeholder="Apellidos" required autofocus>
             </div>
         </div>
         <br/>
         <div>
         <label for="inputEmail" class="sr-only">Correo Electronico</label>
-        <input type="email" id="email" class="form-control" placeholder="Correo Electronico" required autofocus>
+        <input type="email" id="email" class="form-control" asp-for="Email" placeholder="Correo Electronico" required autofocus>
         </div>
         <br/>
         <div class="row">
             <div class="col-xs-12 col-lg-6">
                 <label for="inputEmail" class="sr-only">Contraseña</label>
-                <input type="password" id="passw" class="form-control" placeholder="Contraseña" required autofocus>
+                <input type="password" id="passw" class="form-control" asp-for="Password" placeholder="Contraseña" required autofocus>
             </div>
             <div class="col-xs-12 col-lg-6">
                 <label for="inputEmail" class="sr-only">Validar Contraseña</label>
-                <input type="password" id="passw" class="form-control" placeholder="Validar Contraseña" required autofocus>
+                <input type="password" id="passw" class="form-control" asp-for="ConfirmPassword" placeholder="Validar Contraseña" required autofocus>
             </div>
         </div>
         <br/>
         <div>
         <label for="inputEmail" class="sr-only">Especialidad</label>
-        <input id="especialidad" class="form-control" placeholder="Especialidad" required autofocus>
+        <input id="especialidad" asp-for="Especialidad" class="form-control" placeholder="Especialidad" required autofocus>
         </div>
-        
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
-        <br/>
-        <button id = "go-traveler" class="btn btn-lg btn-primary btn-block" onclick="saveTraveler()" type="submit">Registro</button>
-      </form>
 
+        <br/>
+        <button id="go-traveler" class="btn btn-lg btn-primary btn-block" type="submit">Registro</button>
+      </form>
     </div> <!-- /container -->
 
 
@@ -59,4 +54,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script> -->
 
-  </body>
+</body>
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

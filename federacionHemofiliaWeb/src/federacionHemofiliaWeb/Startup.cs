@@ -8,10 +8,14 @@ using Microsoft.AspNet.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.PlatformAbstractions;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Data.Entity;
 
 using federacionHemofiliaWeb.Services;
 using federacionHemofiliaWeb.Interfaces;
 using federacionHemofiliaWeb.Repositories;
+using federacionHemofiliaWeb.Models;
 
 namespace federacionHemofiliaWeb
 {
@@ -19,7 +23,7 @@ namespace federacionHemofiliaWeb
     {
         public IConfigurationRoot Configuration { get; set; }
 
-        public Startup(IHostingEnvironment env)
+        public Startup(IHostingEnvironment env, IApplicationEnvironment envApp)
         {
             var builder = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
@@ -33,12 +37,26 @@ namespace federacionHemofiliaWeb
 
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
+            Configuration["Data:DefaultConnection:ConnectionString"] = $@"Data Source={envApp.ApplicationBasePath}/federacionHemofiliaWeb.db";
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
-        {
+        {/*
+            services.AddEntityFramework()
+                    .AddSqlServer()
+                    .AddDbContext<ApplicationDbContext>();*/
+            services.AddEntityFramework()
+                    .AddSqlite()
+                    .AddDbContext<ApplicationDbContext>(options => {
+                        options.UseSqlite(Configuration["Data:DefaultConnection:ConnectionString"]);
+                    });
+
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                    .AddEntityFrameworkStores<ApplicationDbContext>()
+                    .AddDefaultTokenProviders();
+
             services.AddApplicationInsightsTelemetry(Configuration);
 
             services.Configure<FireOps>(Configuration);
@@ -59,10 +77,19 @@ namespace federacionHemofiliaWeb
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
             }
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+                try
+                {
+                    using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+                    {
+                        serviceScope.ServiceProvider.GetService<ApplicationDbContext>().Database.Migrate();
+                    }
+                }
+                catch { }
             }
 
             app.UseIISPlatformHandler();
@@ -70,6 +97,8 @@ namespace federacionHemofiliaWeb
             app.UseApplicationInsightsExceptionTelemetry();
 
             app.UseStaticFiles();
+
+            app.UseIdentity();
 
             app.UseMvc(routes =>
             {
