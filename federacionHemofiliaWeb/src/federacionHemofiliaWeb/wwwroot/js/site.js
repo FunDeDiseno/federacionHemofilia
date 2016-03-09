@@ -33,6 +33,9 @@ function chartData(id) {
 
     var element = document.getElementById(id).getContext("2d");
     var myChart = new Chart(element).Line(data);
+
+    data.labels = [];
+    data.datasets[0].data = [];
 }
 
 
