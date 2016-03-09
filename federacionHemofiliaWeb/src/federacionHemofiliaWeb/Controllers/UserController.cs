@@ -5,11 +5,15 @@ using Microsoft.AspNet.Authorization;
 
 using federacionHemofiliaWeb.ViewModels.Registro;
 using federacionHemofiliaWeb.Models;
+using federacionHemofiliaWeb.Interfaces;
 
 namespace federacionHemofiliaWeb.Controllers
 {
     public class UserController : Controller
     {
+        [FromServices]
+        private IDoctorRepository doctorMethods { get; set; }
+
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
 
@@ -43,7 +47,17 @@ namespace federacionHemofiliaWeb.Controllers
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction(nameof(HomeController.Index), "Index");
+
+                    if (await doctorMethods.Create(new Medico
+                    {
+                        Citas = new System.Collections.Generic.Dictionary<System.DateTime, string>(),
+                        Especialidad = doctor.Especialidad,
+                        FirstName=doctor.FirstName,
+                        LastNames=doctor.LastNames
+                    }))
+                    {
+                        return RedirectToAction(nameof(HomeController.Index), "Index");
+                    }
                 }
             }
             return View(doctor);
