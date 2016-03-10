@@ -3,6 +3,7 @@
 
 federacionhemofiliaWeb/src/federacionhemofiliaWeb/appsettings.json
 federacionhemofiliaWeb/src/federacionhemofiliaWeb/federacionhemofiliaWeb.db
+federacionhemofiliaWeb/src/federacionhemofiliaWeb/Migrations/
 
 # User-specific files
 *.suo
