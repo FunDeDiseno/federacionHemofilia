@@ -30,7 +30,9 @@ namespace federacionHemofiliaWeb.Repositories
 
         public async Task<bool> Create(Medico doctor, string Id)
         {
-            var createDoctor = await client.PushAsync($"Doctors/{Id}", doctor);
+            var doctores = new Dictionary<string, Medico>();
+            doctores.Add(Id, doctor);
+            var createDoctor = await client.UpdateAsync($"Doctors/", doctores);
             var result = createDoctor.StatusCode;
             if (result.ToString() == "OK")
             {
