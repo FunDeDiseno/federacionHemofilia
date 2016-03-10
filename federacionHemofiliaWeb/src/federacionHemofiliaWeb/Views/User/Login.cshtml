@@ -18,16 +18,17 @@
         <div class="text-center">
             <label for="inputEmail" class="sr-only">Contraseña</label>
             <input type="password" asp-for="Password" id="passw" class="form-control" placeholder="Contraseña" required autofocus>
+            <div class="form-group">
+          </div>
         </div>
-         <br/> 
-          <div class="form-group">
-              <div class="col-md-offset-2 col-md-10">
+        
+        <div class="col-md-offset-2 col-md-10">
                   <div class="checkbox">
-                      <input asp-for="RememberMe" />
+                      <input asp-for="RememberMe"/>
                       <label asp-for="RememberMe"></label>
                   </div>
               </div>
-          </div>
+          
         
         <button id="go-traveler" class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesion</button>
       </form>
