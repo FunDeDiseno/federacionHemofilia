@@ -1,24 +1,32 @@
-
+@model LoginVM
 @{ 
     ViewData["Title"] = "Inicio Sesión";
 }
  <body class="sign-in">
      
     <div class="container">
-      <form asp-controller="User" asp-action="Registro" method="post" role="form" class="form-signin">
+      <form asp-controller="User" asp-action="Login" method="post" role="form" class="form-signin">
         <h1 class="text-center">Inicio de Sesión</h1>  
         
         <br/>
         <div>
         <label for="inputEmail" class="sr-only">Correo Electronico</label>
-        <input type="email" id="email" class="form-control"  placeholder="Correo Electronico" required autofocus>
+        <input type="email" asp-for="Email" id="email" class="form-control"  placeholder="Correo Electronico" required autofocus>
         </div>
         <br/>
     
         <div>
             <label for="inputEmail" class="sr-only">Contraseña</label>
-            <input type="password" id="passw" class="form-control" placeholder="Contraseña" required autofocus>
+            <input type="password" asp-for="Password" id="passw" class="form-control" placeholder="Contraseña" required autofocus>
         </div>
+          <div class="form-group">
+              <div class="col-md-offset-2 col-md-10">
+                  <div class="checkbox">
+                      <input asp-for="RememberMe" />
+                      <label asp-for="RememberMe"></label>
+                  </div>
+              </div>
+          </div>
             
         
         <button id="go-traveler" class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesion</button>

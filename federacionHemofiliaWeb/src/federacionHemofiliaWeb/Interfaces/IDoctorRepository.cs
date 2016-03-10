@@ -9,6 +9,6 @@ namespace federacionHemofiliaWeb.Interfaces
 {
     public interface IDoctorRepository
     {
-        Task<bool> Create(Medico doctor);
+        Task<bool> Create(Medico doctor, string Id);
     }
 }

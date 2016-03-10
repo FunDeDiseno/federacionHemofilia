@@ -28,16 +28,17 @@ namespace federacionHemofiliaWeb.Repositories
             });
         }
 
-        public Task<bool> Create(Medico doctor)
+        public async Task<bool> Create(Medico doctor, string Id)
         {
-            var createDoctor = client.PushAsync($"Doctors/", doctor);
-            if (createDoctor.IsCompleted)
+            var createDoctor = await client.PushAsync($"Doctors/{Id}", doctor);
+            var result = createDoctor.StatusCode;
+            if (result.ToString() == "OK")
             {
-                return Task.FromResult(true);
+                return true;
             }
             else
             {
-                return Task.FromResult(false);
+                return false;
             }
         }
     }

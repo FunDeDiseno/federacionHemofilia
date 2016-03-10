@@ -2,10 +2,10 @@
 
 @if (User.Identity.IsAuthenticated)
 {
-    <form asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="navbar-right">
+    <form asp-controller="User" asp-action="LogOff" method="post" id="logoutForm" class="navbar-right">
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <a asp-controller="Manage" asp-action="Index" title="Manage">Hola @User.GetUserName()!</a>
+                <a asp-controller="Doctor" asp-action="Paciente" title="Manage">Hola @User.GetUserName()!</a>
             </li>
             <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
         </ul>
