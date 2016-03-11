@@ -12,6 +12,7 @@ using Neo4jClient;
 
 using federacionHemofiliaWeb.Interfaces;
 using federacionHemofiliaWeb.Models;
+using federacionHemofiliaWeb.Models.Neo4j;
 using federacionHemofiliaWeb.Services;
 
 namespace federacionHemofiliaWeb.Repositories
@@ -41,10 +42,15 @@ namespace federacionHemofiliaWeb.Repositories
             doctores.Add(Id, doctor);
             var createDoctor = await client.UpdateAsync($"Doctors/", doctores);
 
+            var newDoctor = new Doctor
+            {
+                Id = Id
+            };
+
             neoClient.Connect();
             neoClient.Cypher
                      .Create("(user:Doctor {newDoctor})")
-                     .WithParam("newDoctor", Id)
+                     .WithParam("newDoctor", newDoctor)
                      .ExecuteWithoutResults();
 
             var result = createDoctor.StatusCode;
