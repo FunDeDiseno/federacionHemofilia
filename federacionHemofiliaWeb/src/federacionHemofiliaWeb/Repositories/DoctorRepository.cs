@@ -8,6 +8,7 @@ using FireSharp;
 using FireSharp.Interfaces;
 using FireSharp.Response;
 using FireSharp.Config;
+using Neo4jClient;
 
 using federacionHemofiliaWeb.Interfaces;
 using federacionHemofiliaWeb.Models;
@@ -18,6 +19,7 @@ namespace federacionHemofiliaWeb.Repositories
     public class DoctorRepository : IDoctorRepository
     {
         private IFirebaseClient client;
+        private GraphClient neoClient;
 
         public DoctorRepository(IOptions<FireOps> options)
         {
@@ -26,6 +28,11 @@ namespace federacionHemofiliaWeb.Repositories
                 AuthSecret = options.Value.Secret,
                 BasePath = options.Value.Url
             });
+
+            neoClient = new GraphClient(
+                new Uri(options.Value.NeoUrl),
+                options.Value.NeoUser,
+                options.Value.NeoPss);
         }
 
         public async Task<bool> Create(Medico doctor, string Id)
@@ -33,6 +40,13 @@ namespace federacionHemofiliaWeb.Repositories
             var doctores = new Dictionary<string, Medico>();
             doctores.Add(Id, doctor);
             var createDoctor = await client.UpdateAsync($"Doctors/", doctores);
+
+            neoClient.Connect();
+            neoClient.Cypher
+                     .Create("(user:Doctor {newDoctor})")
+                     .WithParam("newDoctor", Id)
+                     .ExecuteWithoutResults();
+
             var result = createDoctor.StatusCode;
             if (result.ToString() == "OK")
             {

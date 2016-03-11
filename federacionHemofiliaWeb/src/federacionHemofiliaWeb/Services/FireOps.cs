@@ -9,5 +9,8 @@ namespace federacionHemofiliaWeb.Services
     {
         public string Url { get; set; }
         public string Secret { get; set; }
+        public string NeoUrl { get; set; }
+        public string NeoUser { get; set; }
+        public string NeoPss { get; set; }
     }
 }

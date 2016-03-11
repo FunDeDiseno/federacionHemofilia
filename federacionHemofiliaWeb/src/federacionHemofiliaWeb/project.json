@@ -36,8 +36,9 @@
 
   "frameworks": {
     "dnx451": {
-      "dependencies":{ 
-          "FireSharp": "2.0.3"
+      "dependencies":{
+        "FireSharp": "2.0.3",
+        "Neo4jClient": "1.1.0.29"
       }
     }
   },
