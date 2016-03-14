@@ -284,3 +284,10 @@ a:hover {
 a:active {
     color: blue;
 }
+
+.img-user {
+  display: block;
+  max-width: 100%;
+  width: 200%;
+  height: auto;
+}
