@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.OptionsModel;
+using System.Net.Mail;
 
 using FireSharp;
 using FireSharp.Config;
 using FireSharp.Response;
 using FireSharp.Interfaces;
 using Neo4jClient;
+using SendGrid;
 
 using federacionHemofiliaWeb.Interfaces;
 using federacionHemofiliaWeb.Models;
@@ -20,6 +22,7 @@ namespace federacionHemofiliaWeb.Repositories
     {
         private IFirebaseClient client;
         private GraphClient neoClient;
+        private Web emailSender;
 
         public PacienteRepository(IOptions<FireOps> options)
         {
@@ -33,6 +36,8 @@ namespace federacionHemofiliaWeb.Repositories
                 new Uri(options.Value.NeoUrl),
                 options.Value.NeoUser,
                 options.Value.NeoPss);
+
+            emailSender = new Web(options.Value.SendGrid);
         }
 
         public async Task<bool> create(Paciente paciente, string id)
@@ -97,6 +102,22 @@ namespace federacionHemofiliaWeb.Repositories
             }
         }
 
+        public async void sendEmail(string email, string password)
+        {
+            SendGridMessage newMessage = new SendGridMessage();
+            newMessage.AddTo(email);
+            newMessage.From = new MailAddress("hello@federacion.com", "Hello");
+            newMessage.Subject = "Nueva cuenta";
+            newMessage.Html = $@"
+                                <html>
+                                    <body>
+                                            <p>
+                                                {email}/{password}
+                                            </p>
+                                    </body>
+                                </html>";
 
+            await emailSender.DeliverAsync(newMessage);
+        }
     }
 }

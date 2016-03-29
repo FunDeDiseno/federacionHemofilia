@@ -46,8 +46,5 @@ namespace federacionHemofiliaWeb.Controllers
         {
             return View();
         }
-
-
-        
     }
 }
