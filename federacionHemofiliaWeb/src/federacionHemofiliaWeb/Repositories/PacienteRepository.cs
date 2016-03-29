@@ -8,6 +8,7 @@ using FireSharp;
 using FireSharp.Config;
 using FireSharp.Response;
 using FireSharp.Interfaces;
+using Neo4jClient;
 
 using federacionHemofiliaWeb.Interfaces;
 using federacionHemofiliaWeb.Models;
@@ -18,6 +19,7 @@ namespace federacionHemofiliaWeb.Repositories
     public class PacienteRepository : IPacienteRepository
     {
         private IFirebaseClient client;
+        private GraphClient neoClient;
 
         public PacienteRepository(IOptions<FireOps> options)
         {
@@ -26,6 +28,39 @@ namespace federacionHemofiliaWeb.Repositories
                 AuthSecret = options.Value.Secret,
                 BasePath = options.Value.Url
             });
+
+            neoClient = new GraphClient(
+                new Uri(options.Value.NeoUrl),
+                options.Value.NeoUser,
+                options.Value.NeoPss);
+        }
+
+        public async Task<bool> create(Paciente paciente, string id)
+        {
+            var pacientes = new Dictionary<string, Paciente>();
+            pacientes.Add(id, paciente);
+            var response = await client.UpdateAsync($"users/{id}", pacientes);
+
+            var newPaciente = new Models.Neo4j.Paciente
+            {
+                Id = id
+            };
+
+            neoClient.Connect();
+            neoClient.Cypher
+                     .Create("(user:Paciente {newPaciente})")
+                     .WithParam("newPaciente", newPaciente)
+                     .ExecuteWithoutResults();
+
+
+            if(response.StatusCode.ToString() == "OK")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public async Task<Dictionary<string,Paciente>> get()
@@ -61,5 +96,7 @@ namespace federacionHemofiliaWeb.Repositories
                 return false;
             }
         }
+
+
     }
 }

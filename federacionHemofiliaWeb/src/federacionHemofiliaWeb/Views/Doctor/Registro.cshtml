@@ -1,50 +1,51 @@
+@model PacienteRegistroVM
 @{ 
     ViewData["Title"] = "Registro Paciente";
 }
  <body class="sign-in">
      
     <div class="container">
-      <form class="form-signin">
+      <form class="form-signin" asp-controller="Paciente" asp-action="Registro" method="post">
         <h1 class="text-center">Registro del Paciente </h1>  
         <!--<h3 class="form-signin-heading">Nombre(s)</h3>-->
         <!-- Stack the columns on mobile by making one full-width and the other half-width -->
         <div class="row">
             <div class="col-xs-12 col-lg-6">
                 <label for="inputEmail" class="sr-only">Nombre(s)</label>
-                <input id="Doctor-names" class="form-control" placeholder="Nombre(s)" required autofocus>
+                <input asp-for="Name" id="Doctor-names" class="form-control" placeholder="Nombre(s)" required autofocus>
             </div>
             <div class="col-xs-12 col-lg-6">
                 <label for="inputEmail" class="sr-only">Apellidos</label>
-                <input id="Doctor-lastnames" class="form-control" placeholder="Apellidos" required autofocus>
+                <input asp-for="LastNmes" id="Doctor-lastnames" class="form-control" placeholder="Apellidos" required autofocus>
             </div>
         </div>
         <br/>
         
         <div>
             <label for="inputEmail" class="sr-only">Correo Electronico</label>
-            <input type="email" id="email" class="form-control" placeholder="Correo Electronico" required autofocus>
+            <input asp-for="Email" type="email" id="email" class="form-control" placeholder="Correo Electronico" required autofocus>
         </div>
         <br/>
         <div>
             
-            <input id="Bdate" class="form-control" placeholder="Fecha de Nacimiento" type="text" onfocus="this.type='date';
+            <input asp-for="BirthDate" id="Bdate" class="form-control" placeholder="Fecha de Nacimiento" type="text" onfocus="this.type='date';
                       this.setAttribute('onfocus','');this.blur();this.focus();" required autofocus>
         </div>
         <br/>
         <div>
         <label for="inputEmail" class="sr-only">Diagnostico</label>
-        <input type="text" id="diagnostico" class="form-control" placeholder="Diagnostico" required autofocus>
+        <input asp-for="Diagnostic" type="text" id="diagnostico" class="form-control" placeholder="Diagnostico" required autofocus>
         </div>
         
         <br/>  
         <div class="row">
             <div class="col-xs-12 col-lg-6">
                 <label for="inputEmail" class="sr-only">Peso</label>
-                <input id="peso" class="form-control" placeholder="Peso" required autofocus>
+                <input id="peso" class="form-control" asp-for="Peso" placeholder="Peso" required autofocus>
             </div>
             <div class="col-xs-12 col-lg-6">
                 <label for="inputEmail" class="sr-only">Estatura</label>
-                <input id="estatura" class="form-control" placeholder="Estatura" required autofocus>
+                <input id="estatura" class="form-control" asp-for="Height" placeholder="Estatura" required autofocus>
             </div>
         </div>
         <br/>
@@ -85,7 +86,7 @@
         
        
         <br/>
-        <button id = "registro" class="btn btn-lg btn-primary btn-block" onclick="saveTraveler()" type="submit">Registro</button>
+        <button id = "registro" class="btn btn-lg btn-primary btn-block" type="submit">Registro</button>
       </form>
 
     </div> <!-- /container -->

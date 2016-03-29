@@ -18,5 +18,7 @@ namespace federacionHemofiliaWeb.Interfaces
 
         Task<bool> update(Paciente paciente, string id);
 
+        Task<bool> create(Paciente paciente, string id);
+
     }
 }

@@ -42,6 +42,7 @@ namespace federacionHemofiliaWeb.Controllers
             return View();
         }
         
+        [HttpGet]
         public IActionResult Cita()
         {
             return View();
