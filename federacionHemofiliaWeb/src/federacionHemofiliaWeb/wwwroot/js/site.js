@@ -21,26 +21,31 @@ function chartData(id) {
     xmlhttp.open("GET", "/Doctor/pacienteGraph/" + id, false);
     xmlhttp.send(null);
 
-    var dictionary = JSON.parse(xmlhttp.responseText);
-
-    for (var key in dictionary) {
-        var value = dictionary[key];
-        var correcionFechas = key.split("T");
-        var fecha = correcionFechas[0];
-        data.labels.push(fecha);
-        data.datasets[0].data.push(value)
+    if (xmlhttp.responseText == "") {
+        alert("usuario con id: " + id + " no tiene info que graficar");
     }
+    else {
+        var dictionary = JSON.parse(xmlhttp.responseText);
 
-    var element = document.getElementById(id).getContext("2d");
-    var myChart = new Chart(element).Line(data);
+        for (var key in dictionary) {
+            var value = dictionary[key];
+            var correcionFechas = key.split("T");
+            var fecha = correcionFechas[0];
+            data.labels.push(fecha);
+            data.datasets[0].data.push(value)
+        }
+
+        var element = document.getElementById(id).getContext("2d");
+        var myChart = new Chart(element).Line(data);
+
+    }
 
     data.labels = [];
     data.datasets[0].data = [];
 }
 
-
-function name(params) {
-    
+function navigateTo() {
+    document.location = "/Doctor/Cita"
 }
 
 //registro funcion escoger fecha

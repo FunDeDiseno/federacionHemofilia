@@ -44,7 +44,7 @@ namespace federacionHemofiliaWeb.Repositories
         {
             var pacientes = new Dictionary<string, Paciente>();
             pacientes.Add(id, paciente);
-            var response = await client.UpdateAsync($"users/{id}", pacientes);
+            var response = await client.UpdateAsync($"users/", pacientes);
 
             var newPaciente = new Models.Neo4j.Paciente
             {
@@ -112,7 +112,7 @@ namespace federacionHemofiliaWeb.Repositories
                                 <html>
                                     <body>
                                             <p>
-                                                {email}/{password}
+                                                password: {password}
                                             </p>
                                     </body>
                                 </html>";

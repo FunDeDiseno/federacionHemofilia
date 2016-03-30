@@ -11,6 +11,6 @@ namespace federacionHemofiliaWeb.Interfaces
 
         Task<bool> Delete(string IdDoctor, string IdPaciente);
 
-        Task<bool> Get(string IdDoctor, DateTime fecha);
+        Task<List<string>> Get(string IdDoctor, DateTime fecha);
     }
 }

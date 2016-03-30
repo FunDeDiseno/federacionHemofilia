@@ -19,6 +19,7 @@ namespace federacionHemofiliaWeb.Models
         public string PrimerNombre { get; set; }
         public string Apellido { get; set; }
 
+        [JsonIgnore]
         public string Nombre {
             get
             {
@@ -26,6 +27,7 @@ namespace federacionHemofiliaWeb.Models
             }
         }
 
+        [JsonIgnore]
         public int Edad
         {
             get
@@ -39,6 +41,7 @@ namespace federacionHemofiliaWeb.Models
             }
         }
 
+        [JsonIgnore]
         public string getData
         {
             get
