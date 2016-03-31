@@ -11,10 +11,12 @@
         <!-- Stack the columns on mobile by making one full-width and the other half-width -->
         <div class="row">
             <div class="col-xs-12 col-lg-6">
+                <br/>
                 <label for="inputEmail" class="sr-only">Nombre(s)</label>
                 <input id="Doctor-names" class="form-control" asp-for="FirstName" placeholder="Nombre(s)" required autofocus>
             </div>
             <div class="col-xs-12 col-lg-6">
+                <br/>
                 <label for="inputEmail" class="sr-only">Apellidos</label>
                 <input id="Doctor-lastnames" class="form-control" asp-for="LastNames" placeholder="Apellidos" required autofocus>
             </div>
@@ -35,7 +37,6 @@
                 <input type="password" id="passw" class="form-control" asp-for="ConfirmPassword" placeholder="Validar Contraseña" required autofocus>
             </div>
         </div>
-        <br/>
         <div>
         <label for="inputEmail" class="sr-only">Especialidad</label>
         <input id="especialidad" asp-for="Especialidad" class="form-control" placeholder="Especialidad" required autofocus>

@@ -11,10 +11,14 @@
         <!-- Stack the columns on mobile by making one full-width and the other half-width -->
         <div class="row">
             <div class="col-xs-12 col-lg-6">
+                <br/>
                 <label for="inputEmail" class="sr-only">Nombre(s)</label>
                 <input asp-for="Name" id="Doctor-names" class="form-control" placeholder="Nombre(s)" required autofocus>
-            </div>
+                
+            </div> 
+            
             <div class="col-xs-12 col-lg-6">
+                <br/>
                 <label for="inputEmail" class="sr-only">Apellidos</label>
                 <input asp-for="LastNmes" id="Doctor-lastnames" class="form-control" placeholder="Apellidos" required autofocus>
             </div>
@@ -42,6 +46,7 @@
             <div class="col-xs-12 col-lg-6">
                 <label for="inputEmail" class="sr-only">Peso</label>
                 <input id="peso" class="form-control" asp-for="Peso" placeholder="Peso" required autofocus>
+                <br/>
             </div>
             <div class="col-xs-12 col-lg-6">
                 <label for="inputEmail" class="sr-only">Estatura</label>
