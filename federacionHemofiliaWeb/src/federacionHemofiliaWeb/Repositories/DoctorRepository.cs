@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.OptionsModel;
+using System.Net.Mail;
+
 
 using FireSharp;
 using FireSharp.Interfaces;
-using FireSharp.Response;
 using FireSharp.Config;
 using Neo4jClient;
+using SendGrid;
 
 using federacionHemofiliaWeb.Interfaces;
 using federacionHemofiliaWeb.Models;
 using federacionHemofiliaWeb.Models.Neo4j;
-using federacionHemofiliaWeb.Services;
+using federacionHemofiliaWeb.Services;  
 
 namespace federacionHemofiliaWeb.Repositories
 {
@@ -21,6 +23,7 @@ namespace federacionHemofiliaWeb.Repositories
     {
         private IFirebaseClient client;
         private GraphClient neoClient;
+        private Web emailSender;
 
         public DoctorRepository(IOptions<FireOps> options)
         {
@@ -34,6 +37,8 @@ namespace federacionHemofiliaWeb.Repositories
                 new Uri(options.Value.NeoUrl),
                 options.Value.NeoUser,
                 options.Value.NeoPss);
+
+            emailSender = new Web(options.Value.SendGrid);
         }
 
         public async Task<bool> Create(Medico doctor, string Id)

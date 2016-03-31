@@ -8,6 +8,7 @@ using System.Collections.Concurrent;
 using federacionHemofiliaWeb.Interfaces;
 using federacionHemofiliaWeb.Models;
 using federacionHemofiliaWeb.ViewModels;
+using Microsoft.AspNet.Identity;
 
 namespace federacionHemofiliaWeb.Controllers
 {
@@ -16,14 +17,30 @@ namespace federacionHemofiliaWeb.Controllers
         [FromServices]
         public IPacienteRepository pacientes { get; set; }
 
+        [FromServices]
+        public ICitaRepository citas { get; set; }
+        private readonly UserManager<ApplicationUser> _userManager;
+
+        public DoctorController(UserManager<ApplicationUser> userManager)
+        {
+            _userManager = userManager;
+        }
+
         [HttpGet]
         public async Task<IActionResult> Paciente()
         {
-            var listaPacientes = await pacientes.get();
+            var id = await _userManager.FindByEmailAsync(User.Identity.Name);
+            var date = DateTime.Now;
+            var listaDePacientes = await citas.Get(id.Id, date);
+            var pacient = new Dictionary<string, Paciente>();
+            foreach (var paciente in listaDePacientes)
+            {
+                pacient.Add(paciente, await pacientes.get(paciente));
+            }
 
             return View(new PacienteMV
             {
-                pacientes = listaPacientes
+                pacientes = pacient
             });
         }
         
@@ -47,7 +64,17 @@ namespace federacionHemofiliaWeb.Controllers
             return View();
         }
 
-
-        
+        [HttpPost]
+        public async Task<IActionResult> Cita(CitaVM cita)
+        {
+            var paciente = await _userManager.FindByEmailAsync(cita.Email);
+            var doctor = await _userManager.FindByNameAsync(User.Identity.Name);
+            
+            if(await citas.Create(doctor.Id, paciente.Id, cita.Fecha))
+            {
+                return RedirectToAction("Registro");
+            }
+            return View();
+        }
     }
 }
