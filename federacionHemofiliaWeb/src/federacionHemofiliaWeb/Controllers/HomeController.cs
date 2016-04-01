@@ -32,7 +32,8 @@ namespace federacionHemofiliaWeb.Controllers
         
         public IActionResult Metodologia()
         {
-            return RedirectToAction("Index");
+            return View();
+            //return RedirectToAction("Index");
         }
         
         public IActionResult Evil()
