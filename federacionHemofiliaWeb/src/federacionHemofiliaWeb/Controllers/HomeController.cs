@@ -10,7 +10,6 @@ namespace federacionHemofiliaWeb.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: /<controller>/
         public IActionResult Index()
         {
             return View();
