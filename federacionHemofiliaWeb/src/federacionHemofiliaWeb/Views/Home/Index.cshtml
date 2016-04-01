@@ -3,119 +3,140 @@
 }
 <!-- Carousel
 ================================================== -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img class="img-responsive first-slide" src="~/images/hemofilia.jpg" alt="First slide">
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1>TU APP - TU TRATAMIENTO</h1>
-                    <p><a class="btn btn-lg btn-primary" asp-controller="Home" asp-action="Acerca" role="button">Conoce</a></p>
+<body class="site-wrapper">
+    <div id="myCarousel" class="site-wrapper carousel slide " data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img class="img-responsive first-slide" src="~/images/hemofilia.jpg" alt="First slide">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>TU APP - TU TRATAMIENTO</h1>
+                        <p><a class="btn btn-lg btn-primary" asp-controller="Home" asp-action="Acerca" role="button">Conoce</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img class="img-responsive second-slide" src="~/images/mobileHealth.jpg" alt="Second slide">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Proyecto Ultra es mas que solo una idea</h1>
+                        <p><a class="btn btn-lg btn-primary" asp-controller="Home" asp-action="Acerca" role="button">Conoce</a></p>
+                    </div>
+                </div> 
+            </div>
+            <div class="item">
+                <img class="img-responsive third-slide" src="http://www.ergentus.com/wp-content/uploads/2014/03/bigstock-healthcare-medical-and-future-50084645.jpg" alt="Third slide">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <p><a class="btn btn-lg btn-primary" asp-controller="Home" asp-action="Acerca" role="button">Conoce</a></p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="item">
-            <img class="img-responsive second-slide" src="~/images/mobileHealth.jpg" alt="Second slide">
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1>Proyecto Ultra es mas que solo una idea</h1>
-                    <p><a class="btn btn-lg btn-primary" asp-controller="Home" asp-action="Acerca" role="button">Conoce</a></p>
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div><!-- /.carousel -->
+    <div class="site-wrapper">
+        <h1 class="text-center">Proyecto Ultra</h1>
+        <h3 class="text-center">Lleva un registro con tu Doctor del consumo y uso del factor (medicamento),<br/> y asi puedas tener 
+            constante evaluación por parte de tu Doctor </h3>
+    </div>
+        
+    <div class="rectangle">
+        <div class="container marketing ">
+        
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-xs-12">
+                    <img class="center-block img-responsive img-circle" src="~/images/doctor.png" alt="Generic placeholder image" width="140" height="140">
+                    <br/>
                 </div>
-            </div> 
-        </div>
-        <div class="item">
-            <img class="img-responsive third-slide" src="http://www.ergentus.com/wp-content/uploads/2014/03/bigstock-healthcare-medical-and-future-50084645.jpg" alt="Third slide">
-            <div class="container">
-                <div class="carousel-caption">
-                    <p><a class="btn btn-lg btn-primary" asp-controller="Home" asp-action="Acerca" role="button">Conoce</a></p>
+                <div class="col-lg-3 col-md-3 col-xs-12">
+                    <img class="center-block img-responsive img-circle" src="~/images/user.png" alt="Generic placeholder image" width="140" height="140">
+                    <br/>
+                </div>
+                <div class="col-lg-3 col-md-3 col-xs-12">
+                    <img class="center-block img-responsive img-circle" src="~/images/logo1.png" alt="Generic placeholder image" width="140" height="140">
+                    <br/>
+                </div>
+                <div class="col-lg-3 col-md-3 col-xs-12">
+                    <img class="center-block img-responsive img-circle" src="~/images/fluctuates.png" alt="Generic placeholder image" width="140" height="140">
                 </div>
             </div>
         </div>
     </div>
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div><!-- /.carousel -->
 
-<div class="rectangle">
-    <div class="container marketing">
-    
-        <div class="row">
-            <div class="col-lg-3 col-md-3 col-xs-3">
-                <img class="img-responsive img-circle" src="~/images/doctor.png" alt="Generic placeholder image" width="140" height="140">
-            </div>
-            <div class="col-lg-3 col-md-3 col-xs-3">
-                <img class="img-responsive img-circle" src="~/images/user.png" alt="Generic placeholder image" width="140" height="140">
-            </div>
-            <div class="col-lg-3 col-md-3 col-xs-3">
-                <img class="img-responsive img-circle" src="~/images/logo1.png" alt="Generic placeholder image" width="140" height="140">
-            </div>
-            <div class="col-lg-3 col-md-3 col-xs-3">
-                <img class="img-responsive " src="~/images/fluctuates.png" alt="Generic placeholder image" width="160" height="140">
-            </div>
+    <div class="rectangle">
+        <div class="container marketing">
+            <!-- Three columns of text below the carousel -->
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-xs-12">
+                    <img class="center-block img-responsive img-circle" src="~/images/doctor.png" alt="Generic placeholder image" width="140" height="140">
+                    <h1 class="text-center">Doctor</h1><br/>
+                </div>
+                <div class="col-lg-3 col-md-3 col-xs-12">
+                    <img class="center-block img-responsive img-circle" src="~/images/user.png" alt="Generic placeholder image" width="140" height="140">
+                    <h3 class="text-center" id="user-doctor-view">Usuario</h3>
+                    <p class="text-center">El doctor tendra diferentes pacientes, que vendran siendo los usuarios de la app
+                        donde por medio de esta el Doctor podra tener un seguimiento desde el portal del Doctor </p><br/>
+                </div>
+                <div class="col-lg-3 col-md-3 col-xs-12">
+                    <img class="center-block img-responsive img-circle" src="~/images/appointment.png" alt="Generic placeholder image" width="140" height="140">
+                    <h3 class="text-center">Agendar cita</h3>
+                    <p class="text-center">Desde el portal de el doctor se podra tener un seguimiento del paciente y 
+                        poder agendar una cita cuando el doctor lo vea conveniente </p><br/>
+                </div>
+                <div class="col-lg-3 col-md-3 col-xs-12">
+                    <img class="center-block img-responsive img-circle" src="~/images/graphics.png" alt="Generic placeholder image" width="140" height="140">
+                    <h3 class="text-center">Control de vida</h3>
+                    <p class="text-center">Se llevara un control y seguimiento del paciente gracias a la app </p><br/>
+                    
+                </div>
+            </div><!-- /.row -->
         </div>
     </div>
-</div>
 
-<div class="rectangle">
-    <div class="container marketing">
-        <!-- Three columns of text below the carousel -->
-        <div class="row">
-            <div class="col-lg-3 col-md-3 col-xs-3">
-                <img class="center-block img-responsive img-circle" src="~/images/doctor.png" alt="Generic placeholder image" width="140" height="140">
-                <h1 class="text-center">Doctor</h1>
-            </div>
-            <div class="col-lg-3 col-md-3 col-xs-3">
-                <img class="center-block img-responsive" src="~/images/user.png" alt="Generic placeholder image" width="140" height="140">
-                <h3 class="text-center" id="user-doctor-view">Usuario</h3>
-            </div>
-            <div class="col-lg-3 col-md-3 col-xs-3">
-                <img class="center-block img-responsive" src="~/images/appointment.png" alt="Generic placeholder image" width="140" height="140">
-                <h3 class="text-center">Agendar cita</h3>
-            </div>
-            <div class="col-lg-3 col-md-3 col-xs-3">
-                <img class="center-block img-responsive" src="~/images/graphics.png" alt="Generic placeholder image" width="140" height="140">
-                <h3 class="text-center">Control de vida</h3>
-            </div>
-        </div><!-- /.row -->
+    <div class="rectangle">
+        <div class="container marketing">
+            <!-- Three columns of text below the carousel -->
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-xs-12">
+                    <img class="center-block img-responsive img-circle" src="~/images/user.png" alt="Generic placeholder image" width="140" height="140">
+                    <h1 class="text-center">Paciente</h1><br/>
+                </div>
+                <div class="col-lg-3 col-md-3 col-xs-12">
+                    <img class="center-block img-responsive img-circle" src="~/images/ultra.png" alt="Generic placeholder image" width="140" height="140">
+                    <h3 class="text-center doctor-view" id="user-doctor-view">App</h3>
+                    <p class="text-center">Cada vez que utilices el factor (medicamento), aprieta el boton en la app para mandar tus datos
+                        a tu doctor y llevar un registro </p><br/>
+                </div>
+                <div class="col-lg-3 col-md-3 col-xs-12">
+                    <img class="center-block img-responsive img-circle" src="~/images/graphics.png" alt="Generic placeholder image" width="140" height="140">
+                    <h3 class="text-center doctor-view">Checa tus niveles</h3>
+                    <p class="text-center">Esta app te permitira estar checando tus niveles de hemoglobina de una manera constante</p><br/>
+                </div>
+                <div class="col-lg-3 col-md-3 col-xs-12">
+                    <img class="center-block img-responsive img-circle" src="~/images/profile.png" alt="Generic placeholder image" width="140" height="140">
+                    <h3 class="text-center doctor-view">Tarjeta medica</h3>
+                    <p class="text-center">Se debera llenar una tarjeta medica para que tu doctor tenga toda la informacion 
+                        para tu tratamiento y continuo chequeo </p>
+                </div>
+            </div><!-- /.row -->
+        </div>
     </div>
-</div>
-
-<div class="rectangle">
-    <div class="container marketing">
-        <!-- Three columns of text below the carousel -->
-        <div class="row">
-            <div class="col-lg-3 col-md-3 col-xs-3">
-                <img class="center-block img-responsive img-circle" src="~/images/user.png" alt="Generic placeholder image" width="140" height="140">
-                <h1 class="text-center">Usuario</h1>
-            </div>
-            <div class="col-lg-3 col-md-3 col-xs-3">
-                <img class="center-block img-responsive" src="~/images/ultra.png" alt="Generic placeholder image" width="140" height="140">
-                <h3 class="text-center doctor-view" id="user-doctor-view">Un Boton</h3>
-            </div>
-            <div class="col-lg-3 col-md-3 col-xs-3">
-                <img class="center-block img-responsive" src="~/images/graphics.png" alt="Generic placeholder image" width="140" height="140">
-                <h3 class="text-center doctor-view">Checa tus niveles</h3>
-            </div>
-            <div class="col-lg-3 col-md-3 col-xs-3">
-                <img class="center-block img-responsive" src="~/images/profile.png" alt="Generic placeholder image" width="140" height="140">
-                <h3 class="text-center doctor-view">Tarjeta medica</h3>
-            </div>
-        </div><!-- /.row -->
-    </div>
-</div>
-<script type="text/javascript">
-    var body = document.getElementById("body");
-    body.classList.remove("container");
-</script>
+    <script type="text/javascript">
+        var body = document.getElementById("body");
+        body.classList.remove("container");
+    </script>
+</body>
