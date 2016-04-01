@@ -10,7 +10,6 @@ namespace federacionHemofiliaWeb.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: /<controller>/
         public IActionResult Index()
         {
             return View();
@@ -32,6 +31,11 @@ namespace federacionHemofiliaWeb.Controllers
         }
         
         public IActionResult Metodologia()
+        {
+            return RedirectToAction("Index");
+        }
+        
+        public IActionResult Evil()
         {
             return View();
         }
