@@ -14,7 +14,6 @@
     ]
 };
 
-//Chart.defaults.global.responsive = true;
 function chartData(id) {
 
     var xmlhttp = new XMLHttpRequest();
