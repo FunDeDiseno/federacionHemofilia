@@ -40,7 +40,8 @@
         "FireSharp": "2.0.3",
         "Neo4jClient": "1.1.0.29"
       }
-    }
+    },
+    "dnxcore50":{}
   },
 
   "exclude": [
