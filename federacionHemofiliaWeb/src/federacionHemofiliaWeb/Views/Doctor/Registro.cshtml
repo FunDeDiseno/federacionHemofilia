@@ -2,32 +2,30 @@
 @{ 
     ViewData["Title"] = "Registro Paciente";
 }
- <body class="sign-in">
+ <body class="sign-in site-wrapper">
      
     <div class="container">
-      <form class="form-signin" asp-controller="Paciente" asp-action="Registro" method="post">
+      <form class="form-signin site-wrapper" asp-controller="Paciente" asp-action="Registro" method="post">
+        <img class="center-block img-circle img-responsive" src="~/images/user.png" width="140">
         <h1 class="text-center">Registro del Paciente </h1>  
         <!--<h3 class="form-signin-heading">Nombre(s)</h3>-->
         <!-- Stack the columns on mobile by making one full-width and the other half-width -->
-        <div class="row">
-            <div class="col-xs-12 col-lg-6">
-                <label for="inputEmail" class="sr-only">Nombre(s)</label>
-                <input asp-for="Name" id="Doctor-names" class="form-control" placeholder="Nombre(s)" required autofocus>
-            </div>
-            <div class="col-xs-12 col-lg-6">
-                <label for="inputEmail" class="sr-only">Apellidos</label>
-                <input asp-for="LastNmes" id="Doctor-lastnames" class="form-control" placeholder="Apellidos" required autofocus>
-            </div>
+        <div>
+            <label for="inputEmail" class="sr-only">Nombre(s)</label>
+            <input asp-for="Name" id="Doctor-names" class="form-control" placeholder="Nombre(s)" required autofocus>
+       </div> 
+       <br/>
+       <div>
+            <label for="inputEmail" class="sr-only">Apellidos</label>
+            <input asp-for="LastNmes" id="Doctor-lastnames" class="form-control" placeholder="Apellidos" required autofocus>
         </div>
         <br/>
-        
         <div>
             <label for="inputEmail" class="sr-only">Correo Electronico</label>
             <input asp-for="Email" type="email" id="email" class="form-control" placeholder="Correo Electronico" required autofocus>
         </div>
         <br/>
         <div>
-            
             <input asp-for="BirthDate" id="Bdate" class="form-control" placeholder="Fecha de Nacimiento" type="text" onfocus="this.type='date';
                       this.setAttribute('onfocus','');this.blur();this.focus();" required autofocus>
         </div>
@@ -42,49 +40,13 @@
             <div class="col-xs-12 col-lg-6">
                 <label for="inputEmail" class="sr-only">Peso</label>
                 <input id="peso" class="form-control" asp-for="Peso" placeholder="Peso" required autofocus>
+                <br/>
             </div>
             <div class="col-xs-12 col-lg-6">
                 <label for="inputEmail" class="sr-only">Estatura</label>
                 <input id="estatura" class="form-control" asp-for="Height" placeholder="Estatura" required autofocus>
             </div>
         </div>
-        <br/>
-        <!--
-        <div class="row">
-            <div class="col-xs-12 col-lg-6">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" 
-                    aria-haspopup="true" aria-expanded="false">
-                        Severidad
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Separated link</a>
-                    </div>
-                    </div>
-                
-            </div>
-            <div class="col-xs-12 col-lg-6">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-default">Action</button>
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="sr-only">Toggle Dropdown</span>
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Separated link</a>
-                    </div>
-                 </div>
-            </div>
-        </div>-->
-        
-       
         <br/>
         <button id = "registro" class="btn btn-lg btn-primary btn-block" type="submit">Registro</button>
       </form>

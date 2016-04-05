@@ -9,6 +9,7 @@ using Microsoft.AspNet.Authorization;
 using federacionHemofiliaWeb.Models;
 using federacionHemofiliaWeb.ViewModels;
 using federacionHemofiliaWeb.Interfaces;
+using federacionHemofiliaWeb.ViewModels.Registro;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -17,7 +18,7 @@ namespace federacionHemofiliaWeb.Controllers
     public class PacienteController : Controller
     {
         [FromServices]
-        private IPacienteRepository pacienteMethods { get; set; }
+        public IPacienteRepository pacienteMethods { get; set; }
 
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
@@ -45,6 +46,30 @@ namespace federacionHemofiliaWeb.Controllers
             {
                 return false;
             }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login([FromBody]LoginVM user)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _signInManager.PasswordSignInAsync(user.Email, user.Password, user.RememberMe, lockoutOnFailure: false);
+                if (result.Succeeded)
+                {
+                    var userLogged = await _userManager.FindByEmailAsync(user.Email);
+                    return Json(userLogged.Id);
+                }
+                else if (result.IsLockedOut)
+                {
+                    return Json("locked");
+                }
+                else
+                {
+                    return Json("something went wrong");
+                }
+            }
+
+            return Json("wrong model");
         }
 
         [HttpPost]
@@ -79,6 +104,7 @@ namespace federacionHemofiliaWeb.Controllers
                     };
 
                     var succed = await pacienteMethods.create(newPaciente, user.Id);
+                    pacienteMethods.sendEmail(paciente.Email, getPass);
 
                     if (succed)
                     {

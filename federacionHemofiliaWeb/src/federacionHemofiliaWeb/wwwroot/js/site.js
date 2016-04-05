@@ -14,33 +14,37 @@
     ]
 };
 
-//Chart.defaults.global.responsive = true;
 function chartData(id) {
 
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET", "/Doctor/pacienteGraph/" + id, false);
     xmlhttp.send(null);
 
-    var dictionary = JSON.parse(xmlhttp.responseText);
-
-    for (var key in dictionary) {
-        var value = dictionary[key];
-        var correcionFechas = key.split("T");
-        var fecha = correcionFechas[0];
-        data.labels.push(fecha);
-        data.datasets[0].data.push(value)
+    if (xmlhttp.responseText == "") {
+        alert("usuario con id: " + id + " no tiene info que graficar");
     }
+    else {
+        var dictionary = JSON.parse(xmlhttp.responseText);
 
-    var element = document.getElementById(id).getContext("2d");
-    var myChart = new Chart(element).Line(data);
+        for (var key in dictionary) {
+            var value = dictionary[key];
+            var correcionFechas = key.split("T");
+            var fecha = correcionFechas[0];
+            data.labels.push(fecha);
+            data.datasets[0].data.push(value)
+        }
+
+        var element = document.getElementById(id).getContext("2d");
+        var myChart = new Chart(element).Line(data);
+
+    }
 
     data.labels = [];
     data.datasets[0].data = [];
 }
 
-
-function name(params) {
-    
+function navigateTo() {
+    document.location = "/Doctor/Cita"
 }
 
 //registro funcion escoger fecha
@@ -48,3 +52,17 @@ function name(params) {
 document.getElementById(function () {
     document.getElementById('#datetimepicker1').datetimepicker();
 });
+
+//--- Mini Slider ------//
+$('#myCarousel').carousel({
+  interval: 5000
+});
+
+$('#carousel-text').html($('#slide-content-0').html());
+
+// When the carousel slides, auto update the text
+$('#myCarousel').on('slid.bs.carousel', function (e) {
+  var id = $('.item.active').data('slide-number');
+  $('#carousel-text').html($('#slide-content-'+id).html());
+});
+//---------------------//

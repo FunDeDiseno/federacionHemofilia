@@ -1,20 +1,20 @@
  @{
     ViewData["Title"] = "Cita";
 }
- 
- <body>
-      <br/>
+@model CitaVM
+ <body class="site-wrapper">
+    <br/><br/>
     <div class="container">
 
-      <form class="form-signin">
-
+      <form class="form-signin site-wrapper" asp-controller="Doctor" asp-action="Cita" method="post">
+        <img class="center-block img-rounded img-responsive" src="~/images/appointment.png" width="140">
         <h2 class="form-signin-heading text-center">Agendar Cita</h2>
          <br/>
-        <label for="inputEmail" class="sr-only">Correo Electronico</label>
-        <input id="mail" type="email" class="form-control" placeholder="Correo Electronico" required autofocus>
+        <label  for="inputEmail" class="sr-only">Correo Electronico</label>
+        <input asp-for="Email" id="mail" type="email" class="form-control" placeholder="Correo Electronico" required autofocus>
         <br/>
         <div>
-           <input id="Bdate" class="form-control" placeholder="Proxima cita" type="text" onfocus="this.type='date';
+           <input asp-for="Fecha" id="Bdate" class="form-control" placeholder="Proxima cita" type="text" onfocus="this.type='date';
                       this.setAttribute('onfocus','');this.blur();this.focus();" required autofocus>
         </div>
         <!--
@@ -22,7 +22,7 @@
         <input id="code_trip" class="form-control" placeholder="Fecha a agendar" required autofocus>-->
         
         <br/>
-        <button id = "agendar" class="btn btn-lg btn-primary btn-block" onclick="" type="submit">Agendar Cita</button>
+        <button id = "agendar" class="btn btn-lg btn-primary btn-block" type="submit">Agendar Cita</button>
       </form>
 
     </div> <!-- /container -->
@@ -34,5 +34,5 @@
         <script src="js/ie10-viewport-bug-workaround.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script> -->
-
-  </body>
+<br/>
+</body>

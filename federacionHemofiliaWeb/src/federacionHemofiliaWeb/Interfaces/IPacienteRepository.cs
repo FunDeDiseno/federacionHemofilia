@@ -20,5 +20,7 @@ namespace federacionHemofiliaWeb.Interfaces
 
         Task<bool> create(Paciente paciente, string id);
 
+        void sendEmail(string email, string password);
+
     }
 }

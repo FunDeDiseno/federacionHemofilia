@@ -59,6 +59,7 @@ namespace federacionHemofiliaWeb
             services.Configure<FireOps>(Configuration);
 
             services.AddSingleton<IDoctorRepository, DoctorRepository>();
+            services.AddSingleton<ICitaRepository, CitaRepository>();
             services.AddScoped<IPacienteRepository, PacienteRepository>();
 
             services.AddMvc();
