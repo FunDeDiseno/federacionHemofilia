@@ -29,19 +29,26 @@ namespace federacionHemofiliaWeb.Controllers
         [HttpGet]
         public async Task<IActionResult> Paciente()
         {
-            var id = await _userManager.FindByEmailAsync(User.Identity.Name);
-            var date = DateTime.Now;
-            var listaDePacientes = await citas.Get(id.Id, date);
-            var pacient = new Dictionary<string, Paciente>();
-            foreach (var paciente in listaDePacientes)
-            {
-                pacient.Add(paciente, await pacientes.get(paciente));
-            }
+            if (User.Identity.IsAuthenticated)
+            { 
+                var id = await _userManager.FindByEmailAsync(User.Identity.Name);
+                var date = DateTime.Now;
+                var listaDePacientes = await citas.Get(id.Id, date);
+                var pacient = new Dictionary<string, Paciente>();
+                foreach (var paciente in listaDePacientes)
+                {
+                    pacient.Add(paciente, await pacientes.get(paciente));
+                }
 
-            return View(new PacienteMV
+                return View(new PacienteMV
+                {
+                    pacientes = pacient
+                });
+            }
+            else
             {
-                pacientes = pacient
-            });
+                return RedirectToAction("Index", "Home", "redirected=True");
+            }
         }
         
         [HttpGet]
