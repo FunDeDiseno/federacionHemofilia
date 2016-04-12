@@ -11,6 +11,6 @@ namespace federacionHemofiliaWeb.Interfaces
     {
         Task<bool> Create(Medico doctor, string Id);
         void SendMail(string nameDoctor, string mailReceiver);
-        Task<Medico> GetDoctor(string Id)
+        Task<Medico> GetDoctor(string Id);
     }
 }
