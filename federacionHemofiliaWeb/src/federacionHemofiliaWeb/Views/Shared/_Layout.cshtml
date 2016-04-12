@@ -28,38 +28,18 @@
     @Html.ApplicationInsightsJavaScript(TelemertryConfiguration)
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toogle navigation</span>
-                    <snap class="icon-bar"></snap>
-                    <snap class="icon-bar"></snap>
-                    <snap class="icon-bar"></snap>
-                </button>
-                <a asp-controller="Home" asp-action="Index" class="navbar-brand">Proyecto Ultra</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-controller="Doctor" asp-action="Paciente">Vista doctor</a></li>
-                    <li><a asp-controller="Home" asp-action="Metodo">Metodologia 2.0</a></li>
-                    <li><a asp-controller="Home" asp-action="MetodoMarco">Metodologia Marco</a></li>
-                </ul>
-                @await Html.PartialAsync("_LoginPartial")
-            </div>
-        </div>
-    </div>
+    @await Html.PartialAsync("_NavBar")
     <br />
     <br />
     <div class="container content-body" id="body">
-            @RenderBody()
+        @RenderBody()
     </div>
-    <div class="container content-body">   
+    <div class="container content-body">
         <hr />
         <footer>
             <p>&copy; 2016 - Federación de Hemofilia de la República Mexicana A.C.</p>
         </footer>
-    </div>    
+    </div>
     <environment names="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
@@ -70,12 +50,14 @@
                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
                 asp-fallback-test="window.jQuery">
         </script>
-        
+
         <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
             ga('create', 'UA-76148328-1', 'auto');
             ga('send', 'pageview');
@@ -89,4 +71,5 @@
     </environment>
     @RenderSection("scripts", required: false)
 </body>
+
 </html>

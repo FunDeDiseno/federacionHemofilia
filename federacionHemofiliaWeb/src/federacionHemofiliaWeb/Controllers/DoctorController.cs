@@ -19,6 +19,9 @@ namespace federacionHemofiliaWeb.Controllers
 
         [FromServices]
         public ICitaRepository citas { get; set; }
+
+        [FromServices]
+        public IDoctorRepository doctorRepo { get; set; }
         private readonly UserManager<ApplicationUser> _userManager;
 
         public DoctorController(UserManager<ApplicationUser> userManager)
@@ -56,8 +59,6 @@ namespace federacionHemofiliaWeb.Controllers
         {
             return await pacientes.getData(id);
         }
-        //"b21ff511-ae6a-4e0b-9300-ed2389ac8cab"
-        //"3faedca2-c7db-44e8-8137-c2e3dced473f"
         
         [HttpGet]
         public IActionResult Registro()
@@ -81,6 +82,24 @@ namespace federacionHemofiliaWeb.Controllers
             {
                 return RedirectToAction("Registro");
             }
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Invitar(Invitacion invitacion)
+        {
+            if (ModelState.IsValid)
+            {
+                var doctor = await _userManager.FindByEmailAsync(User.Identity.Name);
+                var doctorName = await doctorRepo.GetDoctor(doctor.Id);
+                var doctorFullName = doctorName.FirstName + " " + doctorName.LastNames; 
+                doctorRepo.SendMail(doctorFullName, invitacion.Correo);
+            }
+            throw new NotImplementedException();
+        }
+
+        public async Task<IActionResult> Invitar()
+        {
             return View();
         }
     }

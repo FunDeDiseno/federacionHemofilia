@@ -41,6 +41,13 @@ namespace federacionHemofiliaWeb.Repositories
             emailSender = new Web(options.Value.SendGrid);
         }
 
+        public async Task<Medico> GetDoctor(string Id)
+        {
+            var response = await client.GetAsync($"Doctors/{Id}");
+            var doctor = response.ResultAs<Medico>();
+            return doctor;
+        }
+
         public async Task<bool> Create(Medico doctor, string Id)
         {
             var doctores = new Dictionary<string, Medico>();
@@ -67,6 +74,22 @@ namespace federacionHemofiliaWeb.Repositories
             {
                 return false;
             }
+        }
+
+        public async void SendMail(string nameDoctor, string mailReceiver)
+        {
+            SendGridMessage newMessage = new SendGridMessage();
+            newMessage.AddTo(mailReceiver);
+            newMessage.From = new MailAddress("hello@federacion.com");
+            newMessage.Subject = $"Invitacion de {nameDoctor} para Proyecto Ultra";
+            newMessage.Html = $@"
+                                  <html>
+                                        <body><p>El doctor {newMessage} te invitó a participar del proyecto Ultra!</p>
+                                              <p>ve a la siguiente liga <a href=''></p>
+                                        </body>
+                                  </html>";
+
+            await emailSender.DeliverAsync(newMessage);
         }
     }
 }
