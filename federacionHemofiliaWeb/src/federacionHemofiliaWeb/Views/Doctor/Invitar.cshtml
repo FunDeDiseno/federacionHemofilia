@@ -1,1 +1,24 @@
 ﻿
+@model PacienteRegistroVM
+@{ 
+    ViewData["Title"] = "Invitación";
+}
+ <body class="site-wrapper sign-in">
+     <br/>
+    <div class="container ">
+      <form class="form-signin site-wrapper" asp-controller="Paciente" asp-action="Registro" method="post">
+        <img class="center-block img-circle img-responsive" src="~/images/doctor.png" width="140">
+        <h1 class="text-center">Invita a un Doctor </h1>     
+        <br/>
+        <div>
+            <label for="inputEmail" class="sr-only">Correo Electronico</label>
+            <input  id="email" class="form-control" placeholder="Correo Electronico" required autofocus>
+       </div>
+        <br/> 
+        <button id = "invitar" class="btn btn-lg btn-primary btn-block" type="submit">Enviar Invitación</button>
+      </form>
+
+    </div> <!-- /container -->
+
+
+  </body>
