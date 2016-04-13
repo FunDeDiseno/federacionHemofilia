@@ -59,6 +59,7 @@ body {
 .carousel {
     height: 650px;
     margin-bottom: 60px;
+    width: 100%;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -68,6 +69,7 @@ body {
 /* Declare heights because of positioning of img element */
 .carousel .item {
     height: 650px;
+    width: 100%;
     background-color: #777;
 }
 
@@ -77,6 +79,7 @@ body {
     left: 0;
     min-width: 100%;
     height: 650px;
+    width: 100%;
 }
 
 
@@ -302,4 +305,15 @@ a:active {
 
 /*------------------------------------------------------------------------------------*/
 
-
+.site-wrapper1 {
+  background-color: #333;
+  color: #fff;
+  display: table;
+  padding-right: 2%;
+  padding-left: 2%;
+  width: 100%;
+  height: 100%; /* For at least Firefox */
+  min-height: 100%;
+  -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+          box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+}

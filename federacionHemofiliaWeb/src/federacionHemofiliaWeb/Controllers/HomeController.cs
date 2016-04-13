@@ -10,11 +10,6 @@ namespace federacionHemofiliaWeb.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
-
         public IActionResult Metodo()
         {
             return View();
@@ -29,16 +24,23 @@ namespace federacionHemofiliaWeb.Controllers
         {
             return View();
         }
-        
+
         public IActionResult Metodologia()
         {
             return View();
-            //return RedirectToAction("Index");
         }
-        
-        public IActionResult Evil()
+
+        public IActionResult Index(string Length)
         {
-            return View();
+            if (Length == "15")
+            {
+                ViewData["redirigido"] = "No estas logeado";
+                return View();
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }
