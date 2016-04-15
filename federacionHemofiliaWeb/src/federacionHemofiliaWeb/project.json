@@ -41,8 +41,7 @@
         "Neo4jClient": "1.1.0.29",
         "Sendgrid": "6.3.4"
       }
-    },
-    "dnxcore50":{}
+    }
   },
 
   "exclude": [

@@ -46,7 +46,7 @@ namespace federacionHemofiliaWeb.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Registro(DoctorVM doctor)
+        public async Task<IActionResult> Registro(DoctorVM doctor, string Id=null)
         {
             if (ModelState.IsValid)
             {
@@ -56,25 +56,55 @@ namespace federacionHemofiliaWeb.Controllers
                     Email = doctor.Email
                 };
 
-                var result = await _userManager.CreateAsync(user, doctor.Password);
-                if (result.Succeeded)
+                if(Id != null)
                 {
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-
-                    var newDoctor = new Medico
+                    if (Id == doctorMethods.GetHash(doctor.Email))
                     {
-                        Especialidad = doctor.Especialidad,
-                        FirstName = doctor.FirstName,
-                        LastNames = doctor.LastNames,
-                        Citas = new System.Collections.Generic.Dictionary<System.DateTime, string>()
-                    };
-                    
-                    var succeded = await doctorMethods.Create(newDoctor, user.Id);
+                        var result = await _userManager.CreateAsync(user, doctor.Password);
+                        if (result.Succeeded)
+                        {
+                            await _signInManager.SignInAsync(user, isPersistent: false);
 
-                    if (succeded)
-                    {
-                        return RedirectToAction("Index","Home");
+                            var newDoctor = new Medico
+                            {
+                                Especialidad = doctor.Especialidad,
+                                FirstName = doctor.FirstName,
+                                LastNames = doctor.LastNames,
+                                Citas = new System.Collections.Generic.Dictionary<System.DateTime, string>()
+                            };
+
+                            var succeded = await doctorMethods.Create(newDoctor, user.Id);
+
+                            if (succeded)
+                            {
+                                return RedirectToAction("Index", "Home");
+                            }
+                        }
                     }
+                }
+                else
+                {
+                    var result = await _userManager.CreateAsync(user, doctor.Password);
+                    if (result.Succeeded)
+                    {
+                        await _signInManager.SignInAsync(user, isPersistent: false);
+
+                        var newDoctor = new Medico
+                        {
+                            Especialidad = doctor.Especialidad,
+                            FirstName = doctor.FirstName,
+                            LastNames = doctor.LastNames,
+                            Citas = new System.Collections.Generic.Dictionary<System.DateTime, string>()
+                        };
+
+                        var succeded = await doctorMethods.Create(newDoctor, user.Id);
+
+                        if (succeded)
+                        {
+                            return RedirectToAction("Index", "Home");
+                        }
+                    }
+
                 }
             }
             return View(doctor);

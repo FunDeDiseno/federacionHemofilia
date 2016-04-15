@@ -13,7 +13,6 @@ using SendGrid;
 
 using federacionHemofiliaWeb.Interfaces;
 using federacionHemofiliaWeb.Services;
-using federacionHemofiliaWeb.Models;
 using federacionHemofiliaWeb.Models.Neo4j;
 
 namespace federacionHemofiliaWeb.Repositories

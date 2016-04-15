@@ -95,10 +95,12 @@ namespace federacionHemofiliaWeb.Controllers
                 var doctorFullName = doctorName.FirstName + " " + doctorName.LastNames; 
                 doctorRepo.SendMail(doctorFullName, invitacion.Correo);
             }
-            throw new NotImplementedException();
+
+            return RedirectToAction("Index", "Home");
         }
 
-        public async Task<IActionResult> Invitar()
+        [HttpGet]
+        public IActionResult Invitar()
         {
             return View();
         }
