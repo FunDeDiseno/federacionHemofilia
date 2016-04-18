@@ -4,47 +4,46 @@
 }
  <body class="site-wrapper">
     <br/>
-    <div class="container site-wrapper">
+    <div class="container">
         <h1 class="text-center"> INICIO</h1>
         <br/>
         <div class="row">
-            <div class="col-md-6 col-xs-12 col-lg-6 col-sm-12 ">
-                <div class="rectangle ">
+            <div class="col-md-3 col-xs-12 col-lg-3 col-sm-12 ">
+                <!--<div class="rectangle ">-->
                     <!--<img src="~/images/user.png" class="center-block" width="140" height="140">-->
                     <h2 class="text-center">Pacientes</h2>
                     <p class="text-center"> Monitoreo del registro de los pacientes </p><br/>
-                    <img src="~/images/portalDoctor.jpg" class="center-block" width="350" height="300"><br/>
+                    <img src="~/images/user.png" class="center-block" width="200" height="200"><br/>
                     <a asp-controller="Doctor" asp-action="Paciente"><input id = "inicio" style="width:40%" class="center-block btn btn-lg btn-primary btn-block" name="Ir" type="button" value="Ir"></input></a>
-                </div>
+                <!--</div>-->
             </div>
-            <div class="col-md-6 col-xs-12 col-lg-6 col-sm-12">
-                <div class="rectangle">
+            <div class="col-md-3 col-xs-12 col-lg-3 col-sm-12">
+                <!--<div class="rectangle">-->
                     <!--<img src="~/images/user.png" class="center-block" width="140" height="140">-->
-                    <h2 class="text-center">Registro del Paciente</h2>
+                    <h2 class="text-center">Registro Paciente</h2>
                     <p class="text-center"> Registra a un paciente </p><br/>
-                    <img src="~/images/registropaciente.jpg" class="center-block" width="350" height="300"><br/>
+                    <img src="~/images/add.png" class="img-circle center-block" width="200" height="200"><br/>
                      <a asp-controller="Doctor" asp-action="Registro"><input id = "inicio" style="width:40%" class="center-block btn btn-lg btn-primary btn-block" name="Ir" type="button" value="Ir"></input></a>
-                </div>
+                <!--</div>-->
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-xs-12 col-lg-6 col-sm-12">
-                <div class="rectangle">
+        
+            <div class="col-md-3 col-xs-12 col-lg-3 col-sm-12">
+               <!-- <div class="rectangle">-->
                     <!--<img src="~/images/user.png" class="center-block" width="140" height="140">-->
                     <h2 class="text-center">Cita</h2>
                     <p class="text-center"> Agenda una cita con tu paciente </p><br/>
-                    <img src="~/images/agendarcita.jpg" class="center-block" width="350" height="300"><br/>
+                    <img src="~/images/appointment.png" class="center-block" width="200" height="200"><br/>
                     <a asp-controller="Doctor" asp-action="Cita"> <input id = "inicio" style="width:40%" class="center-block btn btn-lg btn-primary btn-block" name="Ir" type="button" value="Ir"></input></a>
-                </div>
+               <!-- </div> -->
             </div>
-            <div class="col-md-6 col-xs-12 col-lg-6 col-sm-12">
-                <div class="rectangle">
+            <div class="col-md-3 col-xs-12 col-lg-3 col-sm-12">
+               <!-- <div class="rectangle">-->
                     <!--<img src="~/images/user.png" class="center-block" width="140" height="140">-->
                     <h2 class="text-center">Invita a un Doctor</h2>
                     <p class="text-center"> Invita a un Doctor a usar este servicio </p><br/>
-                    <img src="~/images/invitar-doc.jpg" class="center-block" width="350" height="300"><br/>
+                    <img src="~/images/email.png" class="img-circle center-block" width="200" height="200"><br/>
                      <a asp-controller="Doctor" asp-action="Invitar"><input id = "inicio" style="width:40%" class="center-block btn btn-lg btn-primary btn-block" name="Ir" type="button" value="Ir"></input></a>
-                </div>
+                <!--</div>-->
             </div>
         </div>
     </div> <!-- /container asp-controller="Doctor" asp-action="Inicio" -->
