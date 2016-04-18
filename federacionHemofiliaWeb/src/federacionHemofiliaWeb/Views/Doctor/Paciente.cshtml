@@ -10,9 +10,19 @@
 <br />
 @if (Model.pacientes.Count == 0)
 {
-    <div class="col-xs-3">
-        <h2>Hey! no tenemos citas para ti hoy!</h2>
-    </div>
+    <body class="site-wrapper sign-in">
+     <br/>
+    <div class="container ">
+      <form class="form-signin site-wrapper" method="post" asp-controller="Doctor" asp-action="Inicio"> 
+        <h1 class="text-center">No ha citas pendientes para hoy</h1>     
+        <br/>
+        <button id = "inicio"  class="btn btn-lg btn-primary btn-block" type="submit">Inicio </button>
+      </form>
+
+    </div> <!-- /container -->
+
+
+  </body>
 }
 else
 {
