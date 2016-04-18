@@ -104,5 +104,19 @@ namespace federacionHemofiliaWeb.Controllers
         {
             return View();
         }
+        
+        public IActionResult Confirmacion_Paciente()
+        {
+            return View();
+        }
+        public IActionResult Confirmacion_Invitacion()
+        {
+            return View();
+        }
+        
+        public IActionResult Inicio()
+        {
+            return View();
+        }
     }
 }

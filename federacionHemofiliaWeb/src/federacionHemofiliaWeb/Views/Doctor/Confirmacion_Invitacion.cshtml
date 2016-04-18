@@ -1,0 +1,21 @@
+
+@{ 
+    ViewData["Title"] = "Confirmación";
+}
+ <body class="site-wrapper sign-in">
+     <br/>
+    <div class="container ">
+      <form class="form-signin site-wrapper" method="post" asp-controller="Doctor" asp-action="Inicio"> 
+        <h1 class="text-center">Se ha <em>enviado</em> exitosamente la invitación </h1>     
+        <br/>
+        <img style="background-color:white" class="center-block img-circle img-responsive" src="~/images/email.png" width="140">
+        <br/>
+        <h2 id="nombre-paciente"> <!-- NOMBRE DEL PACIENTE-->  </h2>
+        <br/> 
+        <button id = "inicio"  class="btn btn-lg btn-primary btn-block" type="submit">Inicio </button>
+      </form>
+
+    </div> <!-- /container -->
+
+
+  </body>

@@ -13,11 +13,13 @@
         <label  for="inputEmail" class="sr-only">Correo Electronico</label>
         <input asp-for="Email" id="mail" type="email" class="form-control" placeholder="Correo Electronico" required autofocus>
         <br/>
-        <div>
-           <input asp-for="Fecha" id="Bdate" class="form-control" placeholder="Proxima cita" type="text" onfocus="this.type='date';
+        <!--<div>
+          <input asp-for="Fecha" id="Bdate" class="form-control" type="date" name="Cita" value="Proxima cita">-->
+          <input asp-for="Fecha" id="Bdate" class="form-control" placeholder="Proxima cita" type="text" onfocus="this.type='date';
                       this.setAttribute('onfocus','');this.blur();this.focus();" required autofocus>
-        </div>
-        <!--
+   
+        
+        <!--     </div>
         <label for="inputEmail" class="sr-only">Fecha</label>
         <input id="code_trip" class="form-control" placeholder="Fecha a agendar" required autofocus>-->
         

@@ -11,6 +11,10 @@
         <link rel="stylesheet" href="~/css/base/_variables.css" />
         <link rel="stylesheet" href="~/css/components/_graph.css" />
         
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  
         <script src="~/js/Chart.js"></script>
     </environment>
     <environment names="Staging,Production">
@@ -24,6 +28,7 @@
         <link rel="stylesheet" href="~/css/components/_graph.min.css" asp-append-version="true"
               asp-fallback-href="~/css/components/_graph.css" asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <script src="~/js/Chart.js"></script>
+        
     </environment>
     @Html.ApplicationInsightsJavaScript(TelemertryConfiguration)
 </head>
