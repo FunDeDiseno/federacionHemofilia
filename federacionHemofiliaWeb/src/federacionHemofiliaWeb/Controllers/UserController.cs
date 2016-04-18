@@ -77,7 +77,7 @@ namespace federacionHemofiliaWeb.Controllers
 
                             if (succeded)
                             {
-                                return RedirectToAction("Index", "Home");
+                                return RedirectToAction("Inicio", "Doctor");
                             }
                         }
                     }
@@ -101,7 +101,7 @@ namespace federacionHemofiliaWeb.Controllers
 
                         if (succeded)
                         {
-                            return RedirectToAction("Index", "Home");
+                            return RedirectToAction("Inicio", "Doctor");
                         }
                     }
 
@@ -127,7 +127,7 @@ namespace federacionHemofiliaWeb.Controllers
                 var result = await _signInManager.PasswordSignInAsync(user.Email, user.Password, user.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Inicio", "Doctor");
                 }
                 if (result.IsLockedOut)
                 {
