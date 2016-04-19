@@ -114,6 +114,12 @@ namespace federacionHemofiliaWeb.Controllers
             return View();
         }
         
+        public IActionResult CitaEnviada()
+        {
+            return View();
+        }
+        
+        
         public IActionResult Inicio()
         {
             return View();
