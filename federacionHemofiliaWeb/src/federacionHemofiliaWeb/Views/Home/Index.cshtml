@@ -11,8 +11,18 @@
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
+      
         <div class="carousel-inner" role="listbox">
             <div class="item active">
+                <img class="img-responsive second-slide" src="~/images/mobileHealth.jpg" alt="Second slide">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Proyecto Ultra</h1>
+                        <p><a class="btn btn-lg btn-primary" asp-controller="Home" asp-action="Acerca" role="button">Conoce</a></p>
+                    </div>
+                </div> 
+            </div>
+            <div class="item ">
                 <img class="img-responsive first-slide" src="~/images/hemofilia.jpg" alt="First slide">
                 <div class="container">
                     <div class="carousel-caption">
@@ -20,15 +30,6 @@
                         <p><a class="btn btn-lg btn-primary" asp-controller="Home" asp-action="Acerca" role="button">Conoce</a></p>
                     </div>
                 </div>
-            </div>
-            <div class="item">
-                <img class="img-responsive second-slide" src="~/images/mobileHealth.jpg" alt="Second slide">
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>Proyecto Ultra es mas que solo una idea</h1>
-                        <p><a class="btn btn-lg btn-primary" asp-controller="Home" asp-action="Acerca" role="button">Conoce</a></p>
-                    </div>
-                </div> 
             </div>
             <div class="item">
                 <img class="img-responsive third-slide" src="http://www.ergentus.com/wp-content/uploads/2014/03/bigstock-healthcare-medical-and-future-50084645.jpg" alt="Third slide">
@@ -50,7 +51,7 @@
     </div><!-- /.carousel -->
     <div class="site-wrapper">
         <h1 class="text-center">Proyecto Ultra</h1>
-        <h3 class="text-center">Lleva un registro con tu Doctor del consumo y uso del factor (medicamento),<br/> y asi puedas tener 
+        <h3 class="text-center">Lleva un registro con tu Doctor del consumo y uso del factor (medicamento), y asi puedas tener 
             constante evaluación por parte de tu Doctor </h3>
     
         
@@ -81,63 +82,65 @@
             </div>
         </div>
     </div>
-
-    <div class="rectangle">
-        <div class="container marketing">
-            <!-- Three columns of text below the carousel -->
-            <div class="row">
-                <div class="col-lg-3 col-md-3 col-xs-12">
-                    <img class="center-block img-responsive img-circle" src="~/images/doctor.png" alt="Generic placeholder image" width="140" height="140">
-                    <h1 class="text-center">Doctor</h1><br/>
-                </div>
-                <div class="col-lg-3 col-md-3 col-xs-12">
-                    <img class="center-block img-responsive img-circle" src="~/images/user.png" alt="Generic placeholder image" width="140" height="140">
-                    <h3 class="text-center" id="user-doctor-view">Usuario</h3>
-                    <p class="text-center">El doctor tendra diferentes pacientes, que vendran siendo los usuarios de la app
-                        donde por medio de esta el Doctor podra tener un seguimiento desde el portal del Doctor </p><br/>
-                </div>
-                <div class="col-lg-3 col-md-3 col-xs-12">
-                    <img class="center-block img-responsive img-circle" src="~/images/appointment.png" alt="Generic placeholder image" width="140" height="140">
-                    <h3 class="text-center">Agendar cita</h3>
-                    <p class="text-center">Desde el portal de el doctor se podra tener un seguimiento del paciente y 
-                        poder agendar una cita cuando el doctor lo vea conveniente </p><br/>
-                </div>
-                <div class="col-lg-3 col-md-3 col-xs-12">
-                    <img class="center-block img-responsive img-circle" src="~/images/graphics.png" alt="Generic placeholder image" width="140" height="140">
-                    <h3 class="text-center">Control de vida</h3>
-                    <p class="text-center">Se llevara un control y seguimiento del paciente gracias a la app </p><br/>
-                    
-                </div>
-            </div><!-- /.row -->
+    <div class="site-wrapper">
+        <h1 class="text-center rectangle" >USUARIOS</h1>
+        <div class="rectangle">
+            <div class="container marketing">
+                <!-- Three columns of text below the carousel -->
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-xs-12">
+                        <img class="center-block img-responsive img-circle" src="~/images/doctor.png" alt="Generic placeholder image" width="140" height="140">
+                        <h1 class="text-center">Doctor</h1><br/>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-12">
+                        <img class="center-block img-responsive img-circle" src="~/images/user.png" alt="Generic placeholder image" width="140" height="140">
+                        <h3 class="text-center" id="user-doctor-view">Usuario</h3>
+                        <p class="text-center">El doctor tendra diferentes pacientes, que vendran siendo los usuarios de la app
+                            donde por medio de esta el Doctor podra tener un seguimiento desde el portal del Doctor </p><br/>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-12">
+                        <img class="center-block img-responsive img-circle" src="~/images/appointment.png" alt="Generic placeholder image" width="140" height="140">
+                        <h3 class="text-center">Agendar cita</h3>
+                        <p class="text-center">Desde el portal de el doctor se podra tener un seguimiento del paciente y 
+                            poder agendar una cita cuando el doctor lo vea conveniente </p><br/>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-12">
+                        <img class="center-block img-responsive img-circle" src="~/images/graphics.png" alt="Generic placeholder image" width="140" height="140">
+                        <h3 class="text-center">Control de vida</h3>
+                        <p class="text-center">Se llevara un control y seguimiento del paciente gracias a la app </p><br/>
+                        
+                    </div>
+                </div><!-- /.row -->
+            </div>
         </div>
-    </div>
 
-    <div class="rectangle">
-        <div class="container marketing">
-            <!-- Three columns of text below the carousel -->
-            <div class="row">
-                <div class="col-lg-3 col-md-3 col-xs-12">
-                    <img class="center-block img-responsive img-circle" src="~/images/user.png" alt="Generic placeholder image" width="140" height="140">
-                    <h1 class="text-center">Paciente</h1><br/>
-                </div>
-                <div class="col-lg-3 col-md-3 col-xs-12">
-                    <img class="center-block img-responsive img-circle" src="~/images/ultra.png" alt="Generic placeholder image" width="140" height="140">
-                    <h3 class="text-center doctor-view" id="user-doctor-view">App</h3>
-                    <p class="text-center">Cada vez que utilices el factor (medicamento), aprieta el boton en la app para mandar tus datos
-                        a tu doctor y llevar un registro </p><br/>
-                </div>
-                <div class="col-lg-3 col-md-3 col-xs-12">
-                    <img class="center-block img-responsive img-circle" src="~/images/graphics.png" alt="Generic placeholder image" width="140" height="140">
-                    <h3 class="text-center doctor-view">Checa tus niveles</h3>
-                    <p class="text-center">Esta app te permitira reportar el uso que se está dando al medicamento.</p><br/>
-                </div>
-                <div class="col-lg-3 col-md-3 col-xs-12">
-                    <img class="center-block img-responsive img-circle" src="~/images/profile.png" alt="Generic placeholder image" width="140" height="140">
-                    <h3 class="text-center doctor-view">Tarjeta medica</h3>
-                    <p class="text-center">Se debera llenar una tarjeta medica para que tu doctor tenga toda la informacion 
-                        para tu tratamiento y continuo chequeo </p>
-                </div>
-            </div><!-- /.row -->
+        <div class="rectangle">
+            <div class="container marketing">
+                <!-- Three columns of text below the carousel -->
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-xs-12">
+                        <img class="center-block img-responsive img-circle" src="~/images/user.png" alt="Generic placeholder image" width="140" height="140">
+                        <h1 class="text-center">Paciente</h1><br/>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-12">
+                        <img class="center-block img-responsive img-circle" src="~/images/ultra.png" alt="Generic placeholder image" width="140" height="140">
+                        <h3 class="text-center doctor-view" id="user-doctor-view">App</h3>
+                        <p class="text-center">Cada vez que utilices el factor (medicamento), aprieta el boton en la app para mandar tus datos
+                            a tu doctor y llevar un registro </p><br/>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-12">
+                        <img class="center-block img-responsive img-circle" src="~/images/graphics.png" alt="Generic placeholder image" width="140" height="140">
+                        <h3 class="text-center doctor-view">Checa tus niveles</h3>
+                        <p class="text-center">Esta app te permitira reportar el uso que se está dando al medicamento.</p><br/>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-12">
+                        <img class="center-block img-responsive img-circle" src="~/images/profile.png" alt="Generic placeholder image" width="140" height="140">
+                        <h3 class="text-center doctor-view">Tarjeta medica</h3>
+                        <p class="text-center">Se debera llenar una tarjeta medica para que tu doctor tenga toda la informacion 
+                            para tu tratamiento y continuo chequeo </p>
+                    </div>
+                </div><!-- /.row -->
+            </div>
         </div>
     </div>
     <script type="text/javascript">
