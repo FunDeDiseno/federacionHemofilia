@@ -1,4 +1,4 @@
-
+@model PacienteUserName
 @{ 
     ViewData["Title"] = "Confirmación";
 }
@@ -10,7 +10,7 @@
         <br/>
         <img class="center-block img-circle img-responsive" src="~/images/user.png" width="140">
         <br/>
-        <h2 id="nombre-paciente"> <!-- NOMBRE DEL PACIENTE-->  </h2>
+        <h2 id="nombre-paciente"> @Model.FullUserName </h2>
         <br/> 
         <button id = "inicio" class="btn btn-lg btn-primary btn-block" type="submit">Inicio</button>
       </form>

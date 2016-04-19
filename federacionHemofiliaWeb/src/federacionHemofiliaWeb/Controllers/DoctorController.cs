@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+
 using Microsoft.AspNet.Mvc;
-using System.Collections.Concurrent;
+using Microsoft.AspNet.Identity;
 
 using federacionHemofiliaWeb.Interfaces;
 using federacionHemofiliaWeb.Models;
 using federacionHemofiliaWeb.ViewModels;
-using Microsoft.AspNet.Identity;
 
 namespace federacionHemofiliaWeb.Controllers
 {
@@ -96,7 +95,7 @@ namespace federacionHemofiliaWeb.Controllers
                 doctorRepo.SendMail(doctorFullName, invitacion.Correo);
             }
 
-            return RedirectToAction("InvitacionEnviada", "Doctor");
+            return RedirectToAction("InvitacionEnviada", "Doctor", invitacion.Correo);
         }
 
         [HttpGet]
@@ -105,15 +104,27 @@ namespace federacionHemofiliaWeb.Controllers
             return View();
         }
         
-        public IActionResult Confirmacion()
+        [HttpGet]
+        public async Task<IActionResult> Confirmacion(string Id)
         {
-            return View();
+            var user = await _userManager.FindByEmailAsync(Id);
+            var name = await pacientes.get(user.Id);
+
+            var fullName = new PacienteUserName
+            {
+                FullUserName = name.Nombre + " " + name.Apellido
+            };
+
+            return View(fullName);
         }
-        public IActionResult InvitacionEnviada()
+
+        [HttpGet]
+        public IActionResult InvitacionEnviada(string Id)
         {
-            return View();
+            return View(Id);
         }
         
+        [HttpGet]
         public IActionResult Inicio()
         {
             return View();
