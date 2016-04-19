@@ -108,7 +108,7 @@ namespace federacionHemofiliaWeb.Controllers
 
                     if (succed)
                     {
-                        return RedirectToAction("Paciente", "Doctor");
+                        return RedirectToAction("Confirmacion", "Doctor");
                     }
                 }
             }

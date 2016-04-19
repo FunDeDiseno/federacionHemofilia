@@ -96,7 +96,7 @@ namespace federacionHemofiliaWeb.Controllers
                 doctorRepo.SendMail(doctorFullName, invitacion.Correo);
             }
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("InvitacionEnviada", "Doctor");
         }
 
         [HttpGet]
