@@ -34,11 +34,19 @@ namespace federacionHemofiliaWeb.Controllers
         }
 
         [HttpPost]
-        public async Task<bool> registerApliacion(AplicacionMV aplicacion)
+        public async Task<bool> registerApliacion([FromBody]AplicacionMV aplicacion)
         {
             var user = await pacienteMethods.get(aplicacion.userId);
-            user.Aplicaciones.Add(aplicacion.nuevaAplicacion.fecha, aplicacion.nuevaAplicacion.cantidad);
-            if(await pacienteMethods.update(user, aplicacion.userId))
+            if(user.Aplicaciones == null)
+            {
+                user.Aplicaciones = new Dictionary<DateTime, int>();
+                user.Aplicaciones.Add(aplicacion.nuevaAplicacion.fecha, aplicacion.nuevaAplicacion.cantidad);
+            }
+            else
+            {
+                user.Aplicaciones.Add(aplicacion.nuevaAplicacion.fecha, aplicacion.nuevaAplicacion.cantidad);
+            }
+            if (await pacienteMethods.update(user, aplicacion.userId))
             {
                 return true;
             }
@@ -108,7 +116,7 @@ namespace federacionHemofiliaWeb.Controllers
 
                     if (succed)
                     {
-                        return RedirectToAction("Confirmacion", "Doctor", user.Email);
+                        return RedirectToAction("Confirmacion", "Doctor", user.Email.ToString());
                     }
                 }
             }

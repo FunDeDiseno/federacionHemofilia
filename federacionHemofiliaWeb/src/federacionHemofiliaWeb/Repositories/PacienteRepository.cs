@@ -91,15 +91,25 @@ namespace federacionHemofiliaWeb.Repositories
 
         public async Task<bool> update(Paciente paciente, string id)
         {
-            var response = await client.UpdateAsync($"users/{id}", paciente);
-            if(response.StatusCode.ToString() == "200")
-            {
-                return true;
+            var users = await get();
+            users[id] = paciente;
+            
+            try { 
+                var response = await client.UpdateAsync($"users/", users);
+                if (response.StatusCode.ToString() == "200")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return false;
+                Console.WriteLine(ex.Message);
             }
+            return false;
         }
 
         public async void sendEmail(string email, string password)
