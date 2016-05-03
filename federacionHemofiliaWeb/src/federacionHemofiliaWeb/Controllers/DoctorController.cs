@@ -119,6 +119,12 @@ namespace federacionHemofiliaWeb.Controllers
         }
 
         [HttpGet]
+        public IActionResult CitaEnviada()
+        {
+            return View();
+        }
+
+        [HttpGet]
         public IActionResult InvitacionEnviada(string Id)
         {
             return View(Id);
